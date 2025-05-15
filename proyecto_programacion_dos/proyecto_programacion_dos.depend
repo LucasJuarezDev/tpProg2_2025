@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1747316015 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+	<iostream>
+	<windows.h>
+	"Menus.h"
+
+1747316716 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+	<iostream>
+	<cstdlib>
+
