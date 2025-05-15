@@ -4,7 +4,28 @@
 	<windows.h>
 	"Menus.h"
 
-1747316716 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747321019 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
+
+1747320944 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+	"Fecha.h"
+	<ctime>
+
+1747320930 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
+	<iostream>
+	<string>
+
+1747322325 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
+	"Peliculas.h"
+	<cstring>
+
+1747321338 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
+	"Fecha.h"
+
+1747322871 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
+	"peliculasArchivo.h"
+
+1747322855 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+	"Peliculas.h"
 

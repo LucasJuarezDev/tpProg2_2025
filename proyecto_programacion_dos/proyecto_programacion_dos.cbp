@@ -32,8 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="Menus.h" />
+		<Unit filename="Peliculas.cpp" />
+		<Unit filename="Peliculas.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="peliculasArchivo.cpp" />
+		<Unit filename="peliculasArchivo.h" />
+		<Unit filename="peliculasManager.cpp" />
+		<Unit filename="peliculasManager.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
