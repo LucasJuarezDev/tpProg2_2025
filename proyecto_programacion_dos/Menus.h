@@ -46,7 +46,7 @@ void Menu1()
                 break;
             case 2:
                 {
-
+                    Peliculas.submenuCargarCartelera();
                 }
                 break;
             case 3:
@@ -56,7 +56,7 @@ void Menu1()
                 break;
             case 4:
                 {
-                    Peliculas.submenuListarPeliculas(false);
+                    Peliculas.submenuListarPeliculas(1);
                     system("pause");
                 }
                 break;
@@ -68,7 +68,7 @@ void Menu1()
                 break;
             case 6:
                 {
-                    Peliculas.submenuListarPeliculas(true);
+                    Peliculas.submenuListarPeliculas(2);
                     system("pause");
                 }
                 break;

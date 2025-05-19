@@ -13,7 +13,7 @@ private:
     void cargarCadena(char*, int);
 public:
     void submenuCargarPeliculas();
-    void submenuListarPeliculas(bool flag = false);
+    void submenuListarPeliculas(int menus = 1);
     void submenuCargarCartelera();
     void submenuBuscarPeliculas();
 };

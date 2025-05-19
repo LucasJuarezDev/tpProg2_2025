@@ -111,7 +111,7 @@ int peliculaManager::switchClasificacion()
 
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
 
-void peliculaManager::submenuListarPeliculas(bool flag)
+void peliculaManager::submenuListarPeliculas(int menus)
 {
         Pelicula obj;
 
@@ -121,32 +121,60 @@ void peliculaManager::submenuListarPeliculas(bool flag)
     system("cls");
     if(cantidad > 0)
     {
-        if(!flag)
+        switch(menus)
         {
-            for(int x = 0 ; x < cantidad ; x ++)
-            {
-                obj = archPelicula.leerPelicula(x);
-                if(obj.getActivo())
+        case 1:
+            {  // LISTA SOLO LAS PELICULAS EN CARTELERA
+                for(int x = 0 ; x < cantidad ; x ++)
                 {
+                    obj = archPelicula.leerPelicula(x);
+                    if(obj.getActivo())
+                    {
+                        cout << "=================================================" << endl;
+                        mostrarPelicula(obj);
+                        peliculasEnCartelera ++;
+                        cout << "=================================================" << endl;
+                    }
+                }
+                if(peliculasEnCartelera == 0)
+                {
+                    cout << "NO HAY PELICULAS EN CARTELERA." << endl;
+                }
+            }
+            break;
+        case 2:
+            {   //LISTA TODAS LAS PELICULAS
+                for(int x = 0 ; x < cantidad ; x ++)
+                {
+                    obj = archPelicula.leerPelicula(x);
                     cout << "=================================================" << endl;
                     mostrarPelicula(obj);
-                    peliculasEnCartelera ++;
                     cout << "=================================================" << endl;
                 }
             }
-            if(peliculasEnCartelera == 0)
-            {
-                cout << "NO HAY PELICULAS EN CARTELERA." << endl;
+            break;
+        case 3:
+            {   //LISTA LAS PELICULAS DISPONIBLES A SELECCIONAR EN CARTELERA
+                cout << "          AGREGAR PELICULA A CARTELERA" << endl << endl;
+                cout << "Seleccione una pelicula para agregar a la cartelera de hoy" << endl;
+                for(int x = 0 ; x < cantidad ; x ++)
+                {
+                    obj = archPelicula.leerPelicula(x);
+                    if(!obj.getActivo())
+                    {
+                        cout << "=================================================" << endl;
+                        mostrarPelicula(obj);
+                        peliculasEnCartelera ++;
+                        cout << "=================================================" << endl;
+                    }
+                }
+
+                if(peliculasEnCartelera == 0)
+                {
+                    cout << "NO HAY PELICULAS DISPONIBLES A ELEGIR." << endl;
+                }
             }
-        }else
-        {
-            for(int x = 0 ; x < cantidad ; x ++)
-            {
-                obj = archPelicula.leerPelicula(x);
-                cout << "=================================================" << endl;
-                mostrarPelicula(obj);
-                cout << "=================================================" << endl;
-            }
+            break;
         }
     }else
     {
@@ -348,6 +376,66 @@ void peliculaManager::submenuBuscarPeliculas()
                 }
             }
             break;
+        }
+    }while(finProceso != 0);
+}
+
+void peliculaManager::submenuCargarCartelera()
+{
+    int finProceso, selector, pos;
+    int cantidad = archPelicula.ContarRegistrosPelicula();
+    bool encontro = false;
+
+    do
+    {
+        submenuListarPeliculas(3);
+        cout << endl;
+        cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
+        cout << endl;
+        cin >> selector;
+
+        if(selector == 0)return;
+
+        pos = archPelicula.BuscarCodigoPelicula(selector);
+        if (pos != -2){ // Pregunto si se encontró en el archivo
+
+            for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
+
+                cine = archPelicula.leerPelicula(x);
+
+                if (cine.getIdPelicula() == selector){// Una vez encontrada modifico y guardo en el archivo
+
+                    cine.setActivo(true);
+                    archPelicula.SobreescribirPelicula(pos, cine);
+                    encontro = true;
+                }else
+                {
+                    cout << "CODIGO NO DISPONIBLE." << endl;
+                    system("pause");
+                    break;
+                }
+            }
+            break; // Salir del bucle una vez realizada la modificacion
+        }else{
+            cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO: " << endl;
+            if(cin.fail())
+            {
+            cin.clear();
+            cin.ignore();
+            }
+            system("pause");
+            submenuListarPeliculas(3);
+            cout << endl;
+            cout << "OPCION: ";
+            cin >> selector;
+        }
+
+        if(encontro)
+        {
+            cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
+            cout << endl;
+            cout << "OPCION: ";
+            cin >> finProceso;
         }
     }while(finProceso != 0);
 }

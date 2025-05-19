@@ -11,6 +11,7 @@ public:
     int ContarRegistrosPelicula();
     int generarIdPelicula();
     bool SobreescribirPelicula(int, Pelicula);
+    int BuscarCodigoPelicula(int);
 };
 
 
