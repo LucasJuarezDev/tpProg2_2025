@@ -11,9 +11,10 @@ Pelicula :: Pelicula()
     Clasificacion = 0;
     strcpy(Genero, "");
     Estreno = Fecha();
+    Activa = false;
 }
 
-Pelicula :: Pelicula(int id, const char* nombre, int duracion, const char* director_nombre, const char* director_apellido, int clasificacion, const char* genero, Fecha estreno)
+Pelicula :: Pelicula(int id, const char* nombre, int duracion, const char* director_nombre, const char* director_apellido, int clasificacion, const char* genero, Fecha estreno, bool activo)
 {
     setIdPelicula(id);
     setNombre(Nombre);
@@ -23,6 +24,7 @@ Pelicula :: Pelicula(int id, const char* nombre, int duracion, const char* direc
     setClasificacion(clasificacion);
     setGenero(genero);
     setEstreno(estreno);
+    setActivo(activo);
 }
 
 //setters
@@ -59,6 +61,10 @@ void Pelicula::setEstreno(Fecha estreno){
     Estreno = estreno;
 }
 
+void Pelicula::setActivo(bool activo){
+    Activa = activo;
+}
+
 //getters
 
 int Pelicula::getIdPelicula(){
@@ -91,4 +97,8 @@ const char* Pelicula::getGenero(){
 
 Fecha Pelicula::getEstreno(){
     return Estreno;
+}
+
+bool Pelicula::getActivo(){
+    return Activa;
 }

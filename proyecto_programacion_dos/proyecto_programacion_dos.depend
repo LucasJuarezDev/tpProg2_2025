@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1747316015 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1747498779 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
 
-1747321019 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747519046 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
+	"peliculasManager.h"
 
 1747320944 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
@@ -16,16 +17,27 @@
 	<iostream>
 	<string>
 
-1747322325 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
+1747496309 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
 	"Peliculas.h"
 	<cstring>
 
-1747321338 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
+1747496267 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
 	"Fecha.h"
 
-1747322871 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
+1747495341 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
 	"peliculasArchivo.h"
+	<iostream>
 
-1747322855 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+1747495339 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+	"Peliculas.h"
+
+1747518970 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+	"peliculasManager.h"
+	<iostream>
+	<cstring>
+	<iomanip>
+
+1747517418 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
+	"peliculasArchivo.h"
 	"Peliculas.h"
 

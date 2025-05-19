@@ -2,11 +2,12 @@
 #define MENUS_H_INCLUDED
 #include <iostream>
 #include <cstdlib>
+#include "peliculasManager.h"
 using namespace std;
 
 
 //PrendaManager ManagerPrend; //creamos los objetos que usaremos para llamar a las funciones
-//VentaManager ManagerVent;
+peliculaManager Peliculas;
 
 void Menu1()
 
@@ -17,24 +18,30 @@ void Menu1()
         cout << "         PELICULAS" << endl;
         cout << "---------------------------" << endl;
         cout << endl;
-        cout << "1)    AGREGAR A CARTELERA" << endl;
+        cout << "1)    AGREGAR PELICULA" << endl;
         cout << endl;
-        cout << "2)    DAR DE BAJA EN CARTELERA" << endl;
+        cout << "2)    AGREGAR A CARTELERA" << endl;
         cout << endl;
-        cout << "3)    LISTAR CARTELERA" << endl;
+        cout << "3)    DAR DE BAJA EN CARTELERA" << endl;
         cout << endl;
-        cout << "4)    BUSCAR PELICULA"<< endl;
+        cout << "4)    LISTAR CARTELERA" << endl;
+        cout << endl;
+        cout << "5)    BUSCAR PELICULA"<< endl;
+        cout << endl;
+        cout << "6)    LISTAR TODAS LAS PELICULAS"<< endl;
+        cout << endl;
+        cout << "7)    ELIMINAR PELICULA"<< endl;
         cout << endl;
         cout << "---------------------------" << endl;
         cout << endl;
-        cout << "0)   MENU ANTERIOR" << endl;
-
+        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "INGRESE: ";
         cin >> opcion;
 
         switch(opcion){
             case 1:
                 {
-
+                    Peliculas.submenuCargarPeliculas();
                 }
                 break;
             case 2:
@@ -45,13 +52,29 @@ void Menu1()
             case 3:
                 {
 
-                    system("pause");
                 }
                 break;
             case 4:
                 {
-
+                    Peliculas.submenuListarPeliculas(false);
                     system("pause");
+                }
+                break;
+            case 5:
+                {
+                    system("cls");
+                    Peliculas.submenuBuscarPeliculas();
+                }
+                break;
+            case 6:
+                {
+                    Peliculas.submenuListarPeliculas(true);
+                    system("pause");
+                }
+                break;
+            case 7:
+                {
+
                 }
                 break;
             case 0:
@@ -93,8 +116,8 @@ void Menu2()
         cout << endl;
         cout << "---------------------------" << endl;
         cout << endl;
-        cout << "0)    MENU ANTERIOR" << endl;
-
+        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "INGRESE: ";
         cin >> opcion;
 
         switch(opcion){
@@ -149,9 +172,10 @@ void Menu3()
         cout << endl;
         cout << "---------------------------" << endl;
         cout << endl;
-        cout << "0)    MENU ANTERIOR" << endl;
-
+        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "INGRESE: ";
         cin >> opcion;
+
         switch(opcion){
             case 1:
                 {
