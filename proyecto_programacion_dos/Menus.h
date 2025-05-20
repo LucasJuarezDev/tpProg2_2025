@@ -46,12 +46,12 @@ void Menu1()
                 break;
             case 2:
                 {
-                    Peliculas.submenuCargarCartelera();
+                    Peliculas.submenuCartelera(1);
                 }
                 break;
             case 3:
                 {
-
+                    Peliculas.submenuCartelera(2);
                 }
                 break;
             case 4:
@@ -74,7 +74,7 @@ void Menu1()
                 break;
             case 7:
                 {
-
+                    Peliculas.submenuBorrarPeliculas();
                 }
                 break;
             case 0:

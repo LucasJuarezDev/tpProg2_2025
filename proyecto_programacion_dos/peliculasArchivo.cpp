@@ -91,6 +91,7 @@ int peliculaArchivo :: BuscarCodigoPelicula(int Cod) //(te posiciona en la pelic
         cout << "ERROR DE ARCHIVO" << endl;
         return -1; //retorna -1 en caso de error
     }
+
     while(fread(&obj, sizeof(Pelicula), 1, p) == 1) //el ciclo itera hasta encontrar el objeto
     {
         if(obj.getIdPelicula() == Cod)

@@ -4,7 +4,7 @@
 	<windows.h>
 	"Menus.h"
 
-1747665952 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747763099 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
@@ -17,27 +17,27 @@
 	<iostream>
 	<string>
 
-1747496309 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
+1747762631 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
 	"Peliculas.h"
 	<cstring>
 
-1747496267 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
+1747762554 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
 	"Fecha.h"
 
-1747666591 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
+1747761276 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
 	"peliculasArchivo.h"
 	<iostream>
 
 1747667715 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
 	"Peliculas.h"
 
-1747676014 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+1747763206 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
 	"peliculasManager.h"
 	<iostream>
 	<cstring>
 	<iomanip>
 
-1747665861 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
+1747761913 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
 	"peliculasArchivo.h"
 	"Peliculas.h"
 

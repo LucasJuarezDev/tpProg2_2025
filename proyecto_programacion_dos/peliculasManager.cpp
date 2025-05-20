@@ -36,7 +36,7 @@ void peliculaManager::mostrarPelicula(Pelicula obj)
     cout << "   -----------------------    " << endl;
     cout << "CLASIFICACION: " << (obj.getClasificacion() == 1 ? "APTP" : (obj.getClasificacion() == 2) ? "PARA MAYORES DE 14" : "MAYORES DE 18")<< endl;
     cout << "GENERO: " << obj.getGenero() << endl;
-    cout << "DISPONIBLE EN CARTELERA: " << (obj.getActivo() ? "SI" : "NO")<< endl;
+    cout << "DISPONIBLE EN CARTELERA: " << (obj.getEnCartelera() ? "SI" : "NO")<< endl;
 }
 
 int peliculaManager::validarDuracion()
@@ -111,7 +111,7 @@ int peliculaManager::switchClasificacion()
 
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
 
-void peliculaManager::submenuListarPeliculas(int menus)
+void peliculaManager::submenuListarPeliculas(int menus, bool condicional)
 {
         Pelicula obj;
 
@@ -128,7 +128,7 @@ void peliculaManager::submenuListarPeliculas(int menus)
                 for(int x = 0 ; x < cantidad ; x ++)
                 {
                     obj = archPelicula.leerPelicula(x);
-                    if(obj.getActivo())
+                    if(obj.getEnCartelera() && !obj.getBorrar())
                     {
                         cout << "=================================================" << endl;
                         mostrarPelicula(obj);
@@ -147,32 +147,57 @@ void peliculaManager::submenuListarPeliculas(int menus)
                 for(int x = 0 ; x < cantidad ; x ++)
                 {
                     obj = archPelicula.leerPelicula(x);
-                    cout << "=================================================" << endl;
-                    mostrarPelicula(obj);
-                    cout << "=================================================" << endl;
+                    if(!obj.getBorrar())
+                    {
+                        cout << "=================================================" << endl;
+                        mostrarPelicula(obj);
+                        cout << "=================================================" << endl;
+                    }
                 }
             }
             break;
         case 3:
             {   //LISTA LAS PELICULAS DISPONIBLES A SELECCIONAR EN CARTELERA
-                cout << "          AGREGAR PELICULA A CARTELERA" << endl << endl;
-                cout << "Seleccione una pelicula para agregar a la cartelera de hoy" << endl;
-                for(int x = 0 ; x < cantidad ; x ++)
+                if(condicional)
                 {
-                    obj = archPelicula.leerPelicula(x);
-                    if(!obj.getActivo())
+                    cout << "          BORRAR PELICULA EN CARTELERA" << endl << endl;
+                    cout << "Seleccione una pelicula para dar de baja a la cartelera de hoy" << endl;
+                    for(int x = 0 ; x < cantidad ; x ++)
                     {
-                        cout << "=================================================" << endl;
-                        mostrarPelicula(obj);
-                        peliculasEnCartelera ++;
-                        cout << "=================================================" << endl;
+                        obj = archPelicula.leerPelicula(x);
+                        if(obj.getEnCartelera() && !obj.getBorrar())
+                        {
+                            cout << "=================================================" << endl;
+                            mostrarPelicula(obj);
+                            peliculasEnCartelera ++;
+                            cout << "=================================================" << endl;
+                        }
+                    }
+                    if(peliculasEnCartelera == 0)
+                    {
+                        cout << "NO HAY PELICULAS DISPONIBLES A ELEGIR." << endl;
+                    }
+                }else
+                {
+                    cout << "          AGREGAR PELICULA A CARTELERA" << endl << endl;
+                    cout << "Seleccione una pelicula para agregar a la cartelera de hoy" << endl;
+                    for(int x = 0 ; x < cantidad ; x ++)
+                    {
+                        obj = archPelicula.leerPelicula(x);
+                        if(!obj.getEnCartelera() && !obj.getBorrar())
+                        {
+                            cout << "=================================================" << endl;
+                            mostrarPelicula(obj);
+                            peliculasEnCartelera ++;
+                            cout << "=================================================" << endl;
+                        }
+                    }
+                    if(peliculasEnCartelera == 0)
+                    {
+                        cout << "NO HAY PELICULAS DISPONIBLES A ELEGIR." << endl;
                     }
                 }
 
-                if(peliculasEnCartelera == 0)
-                {
-                    cout << "NO HAY PELICULAS DISPONIBLES A ELEGIR." << endl;
-                }
             }
             break;
         }
@@ -243,7 +268,8 @@ void peliculaManager::submenuCargarPeliculas()
         cout << "GENERO: ";
         cargarCadena(genero, 49);
         obj.setGenero(genero);
-        obj.setActivo(false);
+        obj.setEnCartelera(false);
+        obj.setBorrar(false);
         cout << endl;
         cout << "=============================================================="<< endl;
         if(archPelicula.guardarPelicula(obj))
@@ -380,15 +406,128 @@ void peliculaManager::submenuBuscarPeliculas()
     }while(finProceso != 0);
 }
 
-void peliculaManager::submenuCargarCartelera()
+void peliculaManager::submenuCartelera(int menus)
 {
-    int finProceso, selector, pos;
+    int finProceso, selector, pos = 0;
+    int cantidad = archPelicula.ContarRegistrosPelicula();
+    bool encontro = false;
+
+    switch(menus)
+    {
+    case 1:
+        {
+            do
+            {
+                submenuListarPeliculas(3);
+                cout << endl;
+                cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
+                cout << endl;
+                cin >> selector;
+
+                if(selector == 0)return;
+
+                pos = archPelicula.BuscarCodigoPelicula(selector);
+                if (pos != -2){ // Pregunto si se encontró en el archivo
+
+                    for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
+
+                        cine = archPelicula.leerPelicula(x);
+                        if (cine.getIdPelicula() == selector && !cine.getEnCartelera()){// Una vez encontrada modifico y guardo en el archivo
+
+                            cine.setEnCartelera(true);
+                            archPelicula.SobreescribirPelicula(pos, cine);
+                            encontro = true;
+                        }
+                    }
+                    if(!encontro)
+                    {
+                        cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                        system("pause");
+                    } // Salir del bucle una vez realizada la modificacion
+                }else{
+                    cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                    if(cin.fail())
+                    {
+                    cin.clear();
+                    cin.ignore();
+                    }
+                    system("pause");
+                }
+
+                if(encontro)
+                {
+                    encontro = false;
+                    cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
+                    cout << endl;
+                    cout << "OPCION: ";
+                    cin >> finProceso;
+                }
+            }while(finProceso != 0);
+        }
+        break;
+    case 2:
+        {
+            do
+            {
+                submenuListarPeliculas(3, true);
+                cout << endl;
+                cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
+                cout << endl;
+                cin >> selector;
+
+                if(selector == 0)return;
+
+                pos = archPelicula.BuscarCodigoPelicula(selector);
+                if (pos != -2){ // Pregunto si se encontró en el archivo
+
+                    for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
+
+                        cine = archPelicula.leerPelicula(x);
+                        if (cine.getIdPelicula() == selector && cine.getEnCartelera()){// Una vez encontrada modifico y guardo en el archivo
+
+                            cine.setEnCartelera(false);
+                            archPelicula.SobreescribirPelicula(pos, cine);
+                            encontro = true;
+                        }
+                    }
+                    if(!encontro)
+                    {
+                        cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                        system("pause");
+                    } // Salir del bucle una vez realizada la modificacion
+                }else{
+                    cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                    if(cin.fail())
+                    {
+                    cin.clear();
+                    cin.ignore();
+                    }
+                    system("pause");
+                }
+
+                if(encontro)
+                {
+                    encontro = false;
+                    cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
+                    cout << endl;
+                    cout << "OPCION: ";
+                    cin >> finProceso;
+                }
+            }while(finProceso != 0);
+        }
+        break;
+    }
+}
+
+void peliculaManager::submenuBorrarPeliculas()
+{
+    int finProceso, selector, pos = 0;
     int cantidad = archPelicula.ContarRegistrosPelicula();
     bool encontro = false;
 
     do
     {
-        submenuListarPeliculas(3);
+        submenuListarPeliculas(2);
         cout << endl;
         cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
         cout << endl;
@@ -402,41 +541,38 @@ void peliculaManager::submenuCargarCartelera()
             for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
 
                 cine = archPelicula.leerPelicula(x);
+                if (cine.getIdPelicula() == selector && !cine.getBorrar()){// Una vez encontrada modifico y guardo en el archivo
 
-                if (cine.getIdPelicula() == selector){// Una vez encontrada modifico y guardo en el archivo
-
-                    cine.setActivo(true);
+                    cine.setBorrar(true);
                     archPelicula.SobreescribirPelicula(pos, cine);
                     encontro = true;
-                }else
-                {
-                    cout << "CODIGO NO DISPONIBLE." << endl;
-                    system("pause");
-                    break;
                 }
             }
-            break; // Salir del bucle una vez realizada la modificacion
+            if(!encontro)
+            {
+                cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                system("pause");
+            } // Salir del bucle una vez realizada la modificacion
         }else{
-            cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO: " << endl;
+            cout << "PELICULA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
             if(cin.fail())
             {
             cin.clear();
             cin.ignore();
             }
             system("pause");
-            submenuListarPeliculas(3);
-            cout << endl;
-            cout << "OPCION: ";
-            cin >> selector;
         }
 
         if(encontro)
         {
-            cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
+            system("cls");
+            encontro = false;
+            cout << "PELICULA BORRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
             cout << endl;
             cout << "OPCION: ";
             cin >> finProceso;
         }
+
     }while(finProceso != 0);
 }
 

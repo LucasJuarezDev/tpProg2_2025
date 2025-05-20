@@ -12,10 +12,11 @@ private:
     int Clasificacion;
     char Genero[50];
     Fecha Estreno;
-    bool Activa;
+    bool enCartelera;
+    bool Borrar;
 public:
     //constructores
-    Pelicula(int id, const char* nombre, int duracion, const char* director_nombre, const char* director_apellido, int clasificacion, const char* genero, Fecha estreno, bool activo);
+    Pelicula(int id, const char* nombre, int duracion, const char* director_nombre, const char* director_apellido, int clasificacion, const char* genero, Fecha estreno, bool en_cartelera, bool borrar);
     Pelicula();
     //getters
     int getIdPelicula();
@@ -25,8 +26,9 @@ public:
     const char *getDirectorApellido();
     int getClasificacion();
     const char *getGenero();
-    bool getActivo();
+    bool getEnCartelera();
     Fecha getEstreno();
+    bool getBorrar();
     //setters
     void setIdPelicula(int id);
     void setNombre(const char* nombre);
@@ -36,7 +38,8 @@ public:
     void setClasificacion(int clasificacion);
     void setGenero(const char* genero);
     void setEstreno(Fecha estreno);
-    void setActivo(bool activo);
+    void setEnCartelera(bool en_cartelera);
+    void setBorrar(bool borrar);
     //others
     /* algun otro metodo necesario */
 };

@@ -13,9 +13,10 @@ private:
     void cargarCadena(char*, int);
 public:
     void submenuCargarPeliculas();
-    void submenuListarPeliculas(int menus = 1);
-    void submenuCargarCartelera();
+    void submenuListarPeliculas(int menus = 1, bool deleteCartelera = false);
+    void submenuCartelera(int menus = 1);
     void submenuBuscarPeliculas();
+    void submenuBorrarPeliculas();
 };
 
 #endif // PELICULASMANAGER_H_INCLUDED
