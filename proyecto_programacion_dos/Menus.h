@@ -15,26 +15,27 @@ void Menu1()
      int opcion;
     while (true){
         system("cls");
-        cout << "         PELICULAS" << endl;
-        cout << "---------------------------" << endl;
-        cout << endl;
-        cout << "1)    AGREGAR PELICULA" << endl;
-        cout << endl;
-        cout << "2)    AGREGAR A CARTELERA" << endl;
-        cout << endl;
-        cout << "3)    DAR DE BAJA EN CARTELERA" << endl;
-        cout << endl;
-        cout << "4)    LISTAR CARTELERA" << endl;
-        cout << endl;
-        cout << "5)    BUSCAR PELICULA"<< endl;
-        cout << endl;
-        cout << "6)    LISTAR TODAS LAS PELICULAS"<< endl;
-        cout << endl;
-        cout << "7)    ELIMINAR PELICULA"<< endl;
-        cout << endl;
-        cout << "---------------------------" << endl;
-        cout << endl;
-        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                 PELICULAS                  |" << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 1)  AGREGAR PELICULA                       |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 2)  AGREGAR A CARTELERA                    |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 3)  DAR DE BAJA EN CARTELERA               |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 4)  LISTAR CARTELERA                       |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 5)  BUSCAR PELICULA                        |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 6)  LISTAR TODAS LAS PELICULAS             |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 7)  ELIMINAR PELICULA                      |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 0)  MENU ANTERIOR                          |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "+--------------------------------------------+" << endl;
         cout << "INGRESE: ";
         cin >> opcion;
 
@@ -103,20 +104,23 @@ void Menu2()
     int opcion;
     while (true){
         system("cls");
-        cout << "       SALAS" << endl;
-        cout << "--------------------------" << endl;
-        cout << endl;
-        cout << "1)    VER INVENTARIO" << endl;
-        cout << endl;
-        cout << "2)   DETALLES DE PRENDA" << endl;
-        cout << endl;
-        cout << "3)   DETALLES DE PRENDA" << endl;
-        cout << endl;
-        cout << "4)   DETALLES DE PRENDA" << endl;
-        cout << endl;
-        cout << "---------------------------" << endl;
-        cout << endl;
-        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                  SALAS                     |" << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 1)  AGREGAR SALA                           |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 2)  LISTAR TODAS LAS SALAS                 |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 3)  BUSCAR SALA POR NUMERO                 |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 4)  MODIFICAR SALA                         |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 5)  DAR DE BAJA                            |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 0)  MENU ANTERIOR                          |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "+--------------------------------------------+" << endl;
         cout << "INGRESE: ";
         cin >> opcion;
 
@@ -131,6 +135,21 @@ void Menu2()
                 {
 
                     system("pause");
+                }
+                break;
+            case 3:
+                {
+
+                }
+                break;
+            case 4:
+                {
+
+                }
+                break;
+            case 5:
+                {
+
                 }
                 break;
             case 0:
@@ -159,20 +178,21 @@ void Menu3()
     int opcion;
     while (true){
         system("cls");
-        cout << "      VENTAS" << endl;
-        cout << "-------------------------" << endl;
-        cout << endl;
-        cout << "1)  NUEVA VENTA" << endl;
-        cout << endl;
-        cout << "2)   LISTAR VENTAS" << endl;
-        cout << endl;
-        cout << "3)  INFORME - VENTA POR PELICULA" << endl;
-        cout << endl;
-        cout << "3)  INFORME - VENTAS EN EL DIA" << endl;
-        cout << endl;
-        cout << "---------------------------" << endl;
-        cout << endl;
-        cout << "0)   MENU ANTERIOR" << endl << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                  VENTAS                    |" << endl;
+        cout << "+--------------------------------------------+" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 1)  NUEVA VENTA                            |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 2)  LISTAR VENTAS                          |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 3)  INFORME - VENTA POR PELICULA           |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 4)  INFORME - VENTAS EN EL DIA             |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 0)  MENU ANTERIOR                          |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "+--------------------------------------------+" << endl;
         cout << "INGRESE: ";
         cin >> opcion;
 

@@ -4,7 +4,7 @@
 	<windows.h>
 	"Menus.h"
 
-1747763099 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747778672 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
@@ -31,13 +31,34 @@
 1747667715 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
 	"Peliculas.h"
 
-1747763206 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+1747763516 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
 	"peliculasManager.h"
 	<iostream>
 	<cstring>
 	<iomanip>
 
-1747761913 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
+1747779053 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
 	"peliculasArchivo.h"
 	"Peliculas.h"
+
+1747779020 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.cpp
+	"salasArchivos.h"
+	<iostream>
+
+1747763895 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+
+1747779667 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.cpp
+	"Salas.h"
+	<cstring>
+
+1747779580 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.h
+
+1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
+	"Salas.h"
+
+1747779379 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+
+1747779392 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+
+1747779406 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 
