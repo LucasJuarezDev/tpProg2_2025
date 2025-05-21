@@ -8,8 +8,14 @@ private:
     Sala obj;
     salaArchivo archSala;
     void mostrarSala(Sala);
+    void cargarCadena(char*, int);
+    int configurarButacas();
+    int configurarTipoSala();
 public:
-
+    void submenuListarSalas(int menus = 1, bool condicional = false);
+    void submenuAnadirSala();
+    void submenuBuscarSala();
+    void submenuBajaSala();
 };
 
 #endif // SALASMANAGER_H_INCLUDED

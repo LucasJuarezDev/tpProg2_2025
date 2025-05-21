@@ -3,11 +3,14 @@
 #include <iostream>
 #include <cstdlib>
 #include "peliculasManager.h"
+#include "salasManager.h"
+#include "ventasManager.h"
 using namespace std;
 
 
 //PrendaManager ManagerPrend; //creamos los objetos que usaremos para llamar a las funciones
 peliculaManager Peliculas;
+salaManager Salas;
 
 void Menu1()
 
@@ -112,7 +115,7 @@ void Menu2()
         cout << "|                                            |" << endl;
         cout << "| 2)  LISTAR TODAS LAS SALAS                 |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 3)  BUSCAR SALA POR NUMERO                 |" << endl;
+        cout << "| 3)  BUSCAR SALA                            |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 4)  MODIFICAR SALA                         |" << endl;
         cout << "|                                            |" << endl;
@@ -123,23 +126,23 @@ void Menu2()
         cout << "+--------------------------------------------+" << endl;
         cout << "INGRESE: ";
         cin >> opcion;
+        system("cls");
 
         switch(opcion){
             case 1:
                 {
-
-                   system("pause");
+                    Salas.submenuAnadirSala();
                 }
                 break;
             case 2:
                 {
-
+                    Salas.submenuListarSalas();
                     system("pause");
                 }
                 break;
             case 3:
                 {
-
+                    Salas.submenuBuscarSala();
                 }
                 break;
             case 4:
@@ -149,7 +152,7 @@ void Menu2()
                 break;
             case 5:
                 {
-
+                    Salas.submenuBajaSala();
                 }
                 break;
             case 0:
@@ -186,9 +189,11 @@ void Menu3()
         cout << "|                                            |" << endl;
         cout << "| 2)  LISTAR VENTAS                          |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 3)  INFORME - VENTA POR PELICULA           |" << endl;
+        cout << "| 3)  BUSCAR VENTAS POR FECHA                |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 4)  INFORME - VENTAS EN EL DIA             |" << endl;
+        cout << "| 4)  INFORME - VENTA POR PELICULA           |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 5)  INFORME - VENTAS EN EL DIA             |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
