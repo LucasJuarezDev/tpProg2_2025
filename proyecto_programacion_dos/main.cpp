@@ -18,7 +18,7 @@ int main()
         cout << "+--------------------------------------------+" << endl;
         cout << "|              GESTION DE CINE               |" << endl;
         cout << "+--------------------------------------------+" << endl;
-        cout << "|                MENU PRINCIPAL              |" << endl;
+        cout << "|               MENU PRINCIPAL               |" << endl;
         cout << "+--------------------------------------------+" << endl;
         cout << "|                                            |" << endl;
         cout << "|     1) PELICULAS                           |" << endl;
@@ -28,7 +28,7 @@ int main()
         cout << "|     0) SALIR                               |" << endl;
         cout << "|                                            |" << endl;
         cout << "+--------------------------------------------+" << endl;
-        cout << "Ingrese: ";
+        cout << "INGRESE: ";
         cin >> opcion;
         switch(opcion){
             case 1:

@@ -37,11 +37,23 @@
 		<Unit filename="Menus.h" />
 		<Unit filename="Peliculas.cpp" />
 		<Unit filename="Peliculas.h" />
+		<Unit filename="Salas.cpp" />
+		<Unit filename="Salas.h" />
+		<Unit filename="Ventas.cpp" />
+		<Unit filename="Ventas.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="peliculasArchivo.cpp" />
 		<Unit filename="peliculasArchivo.h" />
 		<Unit filename="peliculasManager.cpp" />
 		<Unit filename="peliculasManager.h" />
+		<Unit filename="salasArchivos.cpp" />
+		<Unit filename="salasArchivos.h" />
+		<Unit filename="salasManager.cpp" />
+		<Unit filename="salasManager.h" />
+		<Unit filename="ventasArchivos.cpp" />
+		<Unit filename="ventasArchivos.h" />
+		<Unit filename="ventasManager.cpp" />
+		<Unit filename="ventasManager.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

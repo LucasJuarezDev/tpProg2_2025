@@ -1,12 +1,15 @@
 # depslib dependency file v1.0
-1747316015 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1747519060 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
 
-1747321019 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747848805 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
+	"peliculasManager.h"
+	"salasManager.h"
+	"ventasManager.h"
 
 1747320944 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
@@ -16,19 +19,21 @@
 	<iostream>
 	<string>
 
-1747322325 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
+1747762631 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
 	"Peliculas.h"
 	<cstring>
 
-1747321338 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
+1747762554 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculas.h
 	"Fecha.h"
 
-1747322871 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
+1747761276 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
 	"peliculasArchivo.h"
+	<iostream>
 
-1747322855 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+1747667715 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
 	"Peliculas.h"
 
+<<<<<<< HEAD
 1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
 	<ctime>
@@ -65,4 +70,47 @@
 1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
 	"peliculasArchivo.h"
 	"Peliculas.h"
+=======
+1747763516 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+	"peliculasManager.h"
+	<iostream>
+	<cstring>
+	<iomanip>
+
+1747779053 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
+	"peliculasArchivo.h"
+	"Peliculas.h"
+
+1747779020 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.cpp
+	"salasArchivos.h"
+	<iostream>
+
+1747847871 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+	"peliculasManager.h"
+	"salasManager.h"
+	<iostream>
+	<cstring>
+	<iomanip>
+
+1747845972 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.cpp
+	"Salas.h"
+	<cstring>
+
+1747845942 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.h
+
+1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
+	"Salas.h"
+
+1747779379 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+
+1747779392 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+
+1747779406 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+
+1747848595 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
+	"salasArchivos.h"
+	"Salas.h"
+
+1747779667 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+>>>>>>> edef1007d4ce3afb37babb99a14cd24c5bc9624d
 

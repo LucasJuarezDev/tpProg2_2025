@@ -1,74 +1,74 @@
-#include "peliculasArchivo.h"
+#include "salasArchivos.h"
 #include <iostream>
 using namespace std;
 
-bool peliculaArchivo :: guardarPelicula(Pelicula obj)
+bool salaArchivo :: guardarSala(Sala obj)
 {
     FILE *p;
     bool Escritura;
 
-    p = fopen("PELICULAS.DAT", "ab");
+    p = fopen("SALAS.DAT", "ab");
     if(p == nullptr)
     {
         cout << "NO PUDO ABRIR GUARDADO" << endl;
         return false;
     }
-    Escritura = fwrite(&obj, sizeof(Pelicula), 1, p);
+    Escritura = fwrite(&obj, sizeof(Sala), 1, p);
     fclose(p);
     return Escritura;
 }
 
-Pelicula peliculaArchivo :: leerPelicula(int indice)
+Sala salaArchivo :: leerSala(int indice)
 {
     FILE *p;
 
-    p = fopen("PELICULAS.DAT", "rb");
+    p = fopen("SALAS.DAT", "rb");
     if(p == nullptr)
     {
         cout << "NO PUDO ABRIR LECTURA" << endl;
         return obj;
     }
 
-    fseek(p, sizeof(Pelicula) * indice, SEEK_SET);
-    fread(&obj, sizeof(Pelicula), 1, p);
+    fseek(p, sizeof(Sala) * indice, SEEK_SET);
+    fread(&obj, sizeof(Sala), 1, p);
     fclose(p);
     return obj;
 }
 
-int peliculaArchivo :: ContarRegistrosPelicula()
+int salaArchivo :: ContarRegistrosSala()
 {
     FILE *p;
     int tam;
 
-    p = fopen("PELICULAS.DAT", "rb");
+    p = fopen("SALAS.DAT", "rb");
     if(p == nullptr)
     {
         return -1;
     }
     fseek(p, 0, SEEK_END);
-    tam = ftell(p) / sizeof(Pelicula);
+    tam = ftell(p) / sizeof(Sala);
     fclose(p);
     return tam;
 }
 
-int peliculaArchivo :: generarIdPelicula()
+int salaArchivo :: generarIdSala()
 {
-    int cantidad = ContarRegistrosPelicula();
+    int cantidad = ContarRegistrosSala();
 
     if(cantidad > 0)
     {
-        return leerPelicula(cantidad - 1).getIdPelicula() + 1;
+        return leerSala(cantidad - 1).getIdSala() + 1;
     }else
     {
         return 1;
     }
 }
-bool peliculaArchivo:: SobreescribirPelicula(int indice, Pelicula obj)
+bool salaArchivo:: SobreescribirSala(int indice, Sala obj)
 {
     bool Resultado;
     FILE *p;
 
-    p = fopen("PELICULAS.DAT", "rb+");
+    p = fopen("SALAS.DAT", "rb+");
     if(p == nullptr)
     {
         cout << "ERROR DE ARCHIVO" << endl;
@@ -80,21 +80,21 @@ bool peliculaArchivo:: SobreescribirPelicula(int indice, Pelicula obj)
     return Resultado;
 }
 
-int peliculaArchivo :: BuscarCodigoPelicula(int Cod) //(te posiciona en la pelicula segun el codigo que le pases)
+int salaArchivo :: BuscarCodigoSala(int Cod) //(te posiciona en la pelicula segun el codigo que le pases)
 {
     FILE *p;
     int pos = 0;
 
-    p = fopen("PELICULAS.DAT", "rb");
+    p = fopen("SALAS.DAT", "rb");
     if(p == nullptr)
     {
         cout << "ERROR DE ARCHIVO" << endl;
         return -1; //retorna -1 en caso de error
     }
 
-    while(fread(&obj, sizeof(Pelicula), 1, p) == 1) //el ciclo itera hasta encontrar el objeto
+    while(fread(&obj, sizeof(Sala), 1, p) == 1) //el ciclo itera hasta encontrar el objeto
     {
-        if(obj.getIdPelicula() == Cod)
+        if(obj.getIdSala() == Cod)
         {
             fclose(p);
             return pos; //una vez encontrado retorna la posicion
