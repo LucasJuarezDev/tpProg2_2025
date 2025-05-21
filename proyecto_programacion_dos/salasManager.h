@@ -11,11 +11,14 @@ private:
     void cargarCadena(char*, int);
     int configurarButacas();
     int configurarTipoSala();
+    void modificarSala(Sala&);
 public:
     void submenuListarSalas(int menus = 1, bool condicional = false);
     void submenuAnadirSala();
     void submenuBuscarSala();
     void submenuBajaSala();
+    void submenuModificarSala();
+    void submenuFiltrarSalaPor();
 };
 
 #endif // SALASMANAGER_H_INCLUDED

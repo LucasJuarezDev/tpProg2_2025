@@ -117,9 +117,13 @@ void Menu2()
         cout << "|                                            |" << endl;
         cout << "| 3)  BUSCAR SALA                            |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 4)  MODIFICAR SALA                         |" << endl;
+        cout << "| 4)  FILTRAR SALA POR..                     |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 5)  DAR DE BAJA                            |" << endl;
+        cout << "| 5)  MODIFICAR SALA                         |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 6)  DAR DE BAJA                            |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 7)  ALTA DE BAJA                           |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
@@ -144,15 +148,24 @@ void Menu2()
                 {
                     Salas.submenuBuscarSala();
                 }
-                break;
             case 4:
                 {
-
+                    Salas.submenuBuscarSala();
                 }
                 break;
             case 5:
                 {
+                    Salas.submenuModificarSala();
+                }
+                break;
+            case 6:
+                {
                     Salas.submenuBajaSala();
+                }
+                break;
+            case 7:
+                {
+
                 }
                 break;
             case 0:

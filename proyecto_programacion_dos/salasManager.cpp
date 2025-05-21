@@ -125,6 +125,61 @@ int salaManager::configurarTipoSala()
     return tipo;
 }
 
+void salaManager::modificarSala(Sala &obj)
+{
+    int cantidad, opcion, butacas, tipo_sala;
+    char sala[50];
+    float price;
+
+    do
+    {
+    system("cls");
+    cout << "ELIJA QUE DATOS QUIERE MODIFICAR" << endl;
+    cout << "===========================================" << endl;
+    cout << "SALA A MODIFICAR: " << obj.getIdSala() << "-" << obj.getNombreSala() << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << "1) MODIFICAR NOMBRE DE SALA" << endl;
+    cout << endl;
+    cout << "2) MODIFICAR CANTIDAD DE BUTACAS" << endl;
+    cout << endl;
+    cout << "3) MODIFICAR TIPO DE SALA" << endl;
+    cout << "---------------------------------------------" << endl;
+    cout << "0) SALIR" << endl;
+    cin >> opcion;
+    switch(opcion)
+    {
+    case 1:
+        {
+            cout << "NUEVO NOMBRE: ";
+            cargarCadena(sala, 49);
+            obj.setNombreSala(sala);
+            cout << endl;
+            break;
+        }
+    case 2:
+        {
+            butacas = configurarButacas();
+            obj.setButacas(butacas);
+            cout << endl;
+            break;
+        }
+    case 3:
+        {
+            tipo_sala = configurarTipoSala();
+            obj.setTipoSala(tipo_sala);
+            cout << endl;
+            break;
+        }
+    default:
+          if(opcion != 0){
+            cout << "OPCION INCORRECTA" << endl;
+            }
+        break;
+    }
+    system("pause");
+    }while(opcion != 0);
+}
+
 void salaManager::mostrarSala(Sala obj)
 {
     cout << "SALA NRO " << obj.getIdSala() << endl;
@@ -385,7 +440,7 @@ void salaManager::submenuBajaSala()
                 system("pause");
             } // Salir del bucle una vez realizada la modificacion
         }else{
-            cout << "SALA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+            cout << "SALA NO ENCONTRADA. POR FAVOR, INGRESE UN ID VALIDO. " << endl;
             if(cin.fail())
             {
             cin.clear();
@@ -407,3 +462,97 @@ void salaManager::submenuBajaSala()
     }while(finProceso != 0);
 }
 
+void salaManager::submenuModificarSala()
+{
+    int selector, finProceso, pos = 0;
+    int cantidad = archSala.ContarRegistrosSala();
+    bool encontro = false;
+    Sala obj;
+
+    if (cantidad > 0)
+    {
+        do
+        {
+            submenuListarSalas(1);
+            cout << endl;
+            cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
+            cout << endl;
+            cin >> selector;
+
+            if(selector == 0)return;
+
+            pos = archSala.BuscarCodigoSala(selector);
+            if (pos != -2){ // Pregunto si se encontró en el archivo
+
+                for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
+
+                    obj = archSala.leerSala(x);
+                    if (obj.getIdSala() == selector){// Una vez encontrada modifico y guardo en el archivo
+
+                        modificarSala(obj);
+                        archSala.SobreescribirSala(pos, obj);
+                        encontro = true;
+                    }
+                }
+                if(!encontro)
+                {
+                    cout << "SALA NO ENCONTRADA. POR FAVOR, INGRESE UN CODIGO DE PELICULA VALIDO. " << endl;
+                    system("pause");
+                } // Salir del bucle una vez realizada la modificacion
+            }else{
+                cout << "SALA NO ENCONTRADA. POR FAVOR, INGRESE UN ID VALIDO. " << endl;
+                if(cin.fail())
+                {
+                cin.clear();
+                cin.ignore();
+                }
+                system("pause");
+            }
+
+            if(encontro)
+            {
+                system("cls");
+                encontro = false;
+                cout << "SALA MODIFICADA CON EXITO! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
+                cout << endl;
+                cout << "OPCION: ";
+                cin >> finProceso;
+            }
+
+        }while(finProceso != 0);
+    }else{
+        cout << "NO EXISTEN REGISTROS DE SALAS" << endl;
+        system("pause");
+    }
+}
+
+void salaManager::submenuFiltrarSalaPor()
+{
+    int finProceso, selector;
+    do
+    {
+
+        system("cls");
+        cout << "         SELECTOR DE FILTROS" << endl;
+        cout << "============================================" << endl;
+        cout << "DESEA BUSCAR POR NOMBRE O NRO DE SALA?" << endl;
+        cout << "*************************************" << endl;
+        cout << " 1   - POR NOMBRE" << endl;
+        cout << endl;
+        cout << " 2   - POR NUMERO" << endl;
+        cout << endl;
+        cout << " 3   - ATRAS" << endl;
+        cout << "============================================" << endl;
+        cout << "INGRESE: ";
+        cin >> selector;
+
+        switch(selector)
+        {
+        case 1:
+            {
+
+            }
+        }
+
+    }while(finProceso != 0);
+}
