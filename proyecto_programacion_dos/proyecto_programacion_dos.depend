@@ -29,3 +29,40 @@
 1747322855 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
 	"Peliculas.h"
 
+1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+	"Fecha.h"
+	<ctime>
+
+1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.h
+	<iostream>
+	<string>
+
+1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\main.cpp
+	<iostream>
+	<windows.h>
+	"Menus.h"
+
+1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\menus.h
+	<iostream>
+	<cstdlib>
+
+1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculas.cpp
+	"Peliculas.h"
+	<cstring>
+
+1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculas.h
+	"Fecha.h"
+
+1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.cpp
+	"peliculasArchivo.h"
+
+1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+	"Peliculas.h"
+
+1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+	"peliculasManager.h"
+
+1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.h
+	"peliculasArchivo.h"
+	"Peliculas.h"
+
