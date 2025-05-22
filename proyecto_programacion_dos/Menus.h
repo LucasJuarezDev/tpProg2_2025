@@ -150,7 +150,7 @@ void Menu2()
                 }
             case 4:
                 {
-                    Salas.submenuBuscarSala();
+                    Salas.submenuFiltrarSalaPor();
                 }
                 break;
             case 5:
@@ -165,7 +165,7 @@ void Menu2()
                 break;
             case 7:
                 {
-
+                    Salas.submenuBajaSala(true);
                 }
                 break;
             case 0:

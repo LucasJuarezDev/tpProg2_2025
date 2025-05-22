@@ -4,7 +4,7 @@
 	<windows.h>
 	"Menus.h"
 
-1747848805 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1747923425 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
@@ -95,7 +95,7 @@
 	"salasArchivos.h"
 	<iostream>
 
-1747847871 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+1747923352 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
 	"peliculasManager.h"
 	"salasManager.h"
 	<iostream>
@@ -117,7 +117,7 @@
 
 1747779406 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 
-1747848595 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
+1747923185 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
 	"salasArchivos.h"
 	"Salas.h"
 

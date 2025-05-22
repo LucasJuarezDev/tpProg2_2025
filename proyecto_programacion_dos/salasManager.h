@@ -16,7 +16,7 @@ public:
     void submenuListarSalas(int menus = 1, bool condicional = false);
     void submenuAnadirSala();
     void submenuBuscarSala();
-    void submenuBajaSala();
+    void submenuBajaSala(bool alta = false);
     void submenuModificarSala();
     void submenuFiltrarSalaPor();
 };
