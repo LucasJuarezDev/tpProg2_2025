@@ -123,7 +123,7 @@ void Menu2()
         cout << "|                                            |" << endl;
         cout << "| 6)  DAR DE BAJA                            |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 7)  ALTA DE BAJA                           |" << endl;
+        cout << "| 7)  DAR DE ALTA                            |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
