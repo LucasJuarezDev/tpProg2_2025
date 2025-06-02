@@ -311,7 +311,7 @@ void salaManager::submenuBuscarSala()
     char sala[50];
     int cantidad = archSala.ContarRegistrosSala();
     Sala obj;
-    bool encontrada = false;
+    bool encontrada = false, fin = false;
 
     do
     {

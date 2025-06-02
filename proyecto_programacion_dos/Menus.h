@@ -148,6 +148,7 @@ void Menu2()
                 {
                     Salas.submenuBuscarSala();
                 }
+                break;
             case 4:
                 {
                     Salas.submenuFiltrarSalaPor();
