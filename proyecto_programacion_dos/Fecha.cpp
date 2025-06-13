@@ -56,7 +56,7 @@ Fecha Fecha:: ReturnFechaActual()
     return Fecha();
 }
 
-/*
+
 //cargar fecha
 void Fecha::CargarFecha() {
     int dia, mes, anio;
@@ -71,10 +71,12 @@ void Fecha::CargarFecha() {
         cin >> anio;
 
         // validacion de la fecha ingresaa
-        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && anio >= 2020 && anio <= 2030) {//el año lo hice entre 2020 y 2030
+        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && anio >= 2020 && anio <= 2030) {//el aÃ±o lo hice entre 2020 y 2030
             fechaValida = true;
+            cout << "Fecha guardada correctamente."<< endl;
+            system("pause");
         } else {
-            cout << "Fecha no válida. Por favor, ingrese nuevamente.\n";
+            cout << "Fecha no vÃ¡lida. Por favor, ingrese nuevamente.\n";
         }
     }
 
