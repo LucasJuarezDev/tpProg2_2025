@@ -8,7 +8,7 @@ class VentaArchivo{
 
 private:
     Venta obj;
-
+    Sala venta_sala;
 public:
     bool guardarVenta(Venta);
     Venta leerVenta(int);

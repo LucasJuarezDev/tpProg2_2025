@@ -111,15 +111,15 @@
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1750126717 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750182347 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
 	"ventas.h"
 	<cstring>
 
-1750127754 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+1750184677 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
 	"ventasArchivos.h"
 	<iostream>
 
-1750127858 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750185538 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 	"VentasManager.h"
 	<iostream>
 	<cstring>
@@ -129,8 +129,12 @@
 	"salasArchivos.h"
 	"Salas.h"
 
-1750127497 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750186299 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
 	"Ventas.h"
+	"Salas.h"
+	"Peliculas.h"
+	"peliculasArchivo.h"
+	"peliculasManager.h"
 	"ventasArchivos.h"
 
 1747779667 f1007d4ce3afb37babb99a14cd24c5bc9624d
@@ -167,11 +171,11 @@
 	<cstring>
 	<iomanip>
 
-1750127795 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
+1750182486 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
 	<string>
 	"Ventas.h"
 	"Salas.h"
 
-1750126624 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
+1750187431 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
 	"Fecha.h"
 

@@ -124,3 +124,46 @@ int VentaArchivo::ContarRegistrosSala(){
     fclose(p);
     return tam;
 }
+
+bool VentaArchivo:: SobreescribirSala(int indice, Sala obj)
+{
+    bool Resultado;
+    FILE *p;
+
+    p = fopen("SALAS.DAT", "rb+");
+    if(p == nullptr)
+    {
+        cout << "ERROR DE ARCHIVO" << endl;
+        return false;
+    }
+    fseek(p, sizeof obj * indice, SEEK_SET);//te posiciona en el obj
+    Resultado = fwrite(&obj, sizeof obj, 1, p); //sobre escribis
+    fclose(p);
+    return Resultado;
+}
+
+int VentaArchivo :: BuscarCodigoSala(int Cod) //(te posiciona en la pelicula segun el codigo que le pases)
+{
+    FILE *p;
+    int pos = 0;
+
+    p = fopen("SALAS.DAT", "rb");
+    if(p == nullptr)
+    {
+        cout << "ERROR DE ARCHIVO" << endl;
+        return -1; //retorna -1 en caso de error
+    }
+
+    while(fread(&venta_sala, sizeof(Sala), 1, p) == 1) //el ciclo itera hasta encontrar el objeto
+    {
+        if(venta_sala.getIdSala() == Cod)
+        {
+            fclose(p);
+            return pos; //una vez encontrado retorna la posicion
+        }
+        pos ++;
+    }
+    fclose(p);
+    return -2;// retorna -2 en caso de no encontrarlo en el archivo
+}
+
