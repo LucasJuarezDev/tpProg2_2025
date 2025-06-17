@@ -3,28 +3,31 @@
 
 //constructores
 Venta::Venta(){
-
     idVenta = 0;
     idPelicula = 0;
     idSala = 0;
     fechaProyeccion = Fecha();
     dniComprador = 0;
     cantidadEntradas = 0;
-
+    totalVenta = 0.0f;
 }
 
-Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, int dni, int entradas){
+Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, int dni, int entradas, float total){
     setIdVenta(id_venta);
     setPelicula(id_pelicula);
     setSalaPyoecta(id_sala);
     setFechaProyeccion(fecha_proyeccion);
     setDniComprador(dni);
     setCantidadEntradas(entradas);
-
+    setTotalVenta(total);
 
 }
 
 //setters
+void Venta::setTotalVenta(float total){
+    totalVenta = total;
+}
+
 void Venta::setIdVenta(int id_venta){
     idVenta = id_venta;
 }
@@ -50,6 +53,10 @@ void Venta::setCantidadEntradas(int entradas){
 }
 
 //getters
+float Venta::getTotalVenta(){
+    return totalVenta;
+}
+
 int Venta::getIdVenta(){
     return idVenta;
 }

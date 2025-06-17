@@ -186,7 +186,7 @@ void salaManager::mostrarSala(Sala obj)
     cout << "SALA " << obj.getNombreSala() << endl;
     cout << "CALIDAD : " << (obj.getTipoSala() == 1 ? "ESTANDAR" : (obj.getTipoSala() == 2) ? "PREMIUM" : "CONFORT PLUS")<< endl;
     cout << "CANTIDAD DE ASIENTOS : " << obj.getButacas() << endl;
-    cout << "DISPONIBLE: " << (obj.getSalaOcupada() ? "SI" : "NO")<< endl;
+    cout << "DISPONIBLE: " << (!obj.getSalaOcupada() ? "SI" : "NO")<< endl;
     cout << "EN FUNCIONAMIENTO: " << (obj.getActivo() ? "SI" : "NO")<< endl;
     cout << "*****************************" << endl;
 }

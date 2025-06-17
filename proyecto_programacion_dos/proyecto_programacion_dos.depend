@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1747519060 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1750124736 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
 
-1748905004 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1750127944 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
@@ -95,7 +95,7 @@
 	"salasArchivos.h"
 	<iostream>
 
-1748904069 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+1750126177 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
 	"peliculasManager.h"
 	"salasManager.h"
 	<iostream>
@@ -111,25 +111,25 @@
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1750121070 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750126717 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
 	"ventas.h"
 	<cstring>
 
-1750121271 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+1750127754 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
 	"ventasArchivos.h"
 	<iostream>
 
-1750123941 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750127858 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 	"VentasManager.h"
 	<iostream>
+	<cstring>
 	<iomanip>
-	<limits>
 
 1747923185 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
 	"salasArchivos.h"
 	"Salas.h"
 
-1750121368 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750127497 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
 	"Ventas.h"
 	"ventasArchivos.h"
 
@@ -167,10 +167,11 @@
 	<cstring>
 	<iomanip>
 
-1750121145 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
+1750127795 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
 	<string>
 	"Ventas.h"
+	"Salas.h"
 
-1750120993 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
+1750126624 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
 	"Fecha.h"
 

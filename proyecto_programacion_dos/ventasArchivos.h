@@ -2,6 +2,7 @@
 #define VENTASARCHIVOS_H_INCLUDED
 #include <string>
 #include "Ventas.h"
+#include "Salas.h"
 
 class VentaArchivo{
 
@@ -14,6 +15,11 @@ public:
     int cantidadRegistros();
     int generarIdVenta();
     int buscarCodigoVenta(int);
+    // METODOS RELACIONADOS CON SALA
+    Sala leerSala(int);
+    int ContarRegistrosSala();
+    bool SobreescribirSala(int, Sala);
+    int BuscarCodigoSala(int);
 };
 
 

@@ -11,6 +11,7 @@ using namespace std;
 //PrendaManager ManagerPrend; //creamos los objetos que usaremos para llamar a las funciones
 peliculaManager Peliculas;
 salaManager Salas;
+ventasManager Ventas;
 
 void Menu1()
 
@@ -214,13 +215,13 @@ void Menu3()
         switch(opcion){
             case 1:
                 {
-
+                    Ventas.submenuCargarVenta();
                     system("pause");
                 }
                 break;
             case 2:
                 {
-
+                    //Ventas.submenuListarVentas();
                     system("pause");
                 }
                 break;

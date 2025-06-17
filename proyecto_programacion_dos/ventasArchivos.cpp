@@ -89,3 +89,38 @@ int VentaArchivo::buscarCodigoVenta(int Cod){
     fclose(p);
     return -2;// retorna -2 en caso de no encontrarlo en el archivo
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////        ARCHIVOS RELACIONADOS CON SALA          ////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Sala VentaArchivo::leerSala(int indice){
+    FILE *p;
+
+    p = fopen("SALAS.DAT", "rb");
+    if(p == nullptr)
+    {
+        cout << "NO PUDO ABRIR LECTURA" << endl;
+        return venta_sala;
+    }
+
+    fseek(p, sizeof(Sala) * indice, SEEK_SET);
+    fread(&venta_sala, sizeof(Sala), 1, p);
+    fclose(p);
+    return venta_sala;
+}
+
+int VentaArchivo::ContarRegistrosSala(){
+    FILE *p;
+    int tam;
+
+    p = fopen("SALAS.DAT", "rb");
+    if(p == nullptr)
+    {
+        return -1;
+    }
+    fseek(p, 0, SEEK_END);
+    tam = ftell(p) / sizeof(Sala);
+    fclose(p);
+    return tam;
+}

@@ -1,7 +1,77 @@
 #include "VentasManager.h"
 #include <iostream>
+#include <cstring>
 #include <iomanip>
-#include <limits>
+using namespace std;
+
+//////////////////////////////   METODOS AUXILIARES   ///////////////////////////////////////////
+
+void ventasManager :: cargarCadena(char *Palabra, int Tamanio)
+{
+    int i=0;
+    fflush(stdin);
+    for (i=0; i<Tamanio; i++){
+        Palabra[i]=cin.get();
+        if (Palabra[i]=='\n'){
+            break;
+        }
+    }
+    Palabra[i]='\0';
+    fflush(stdin);
+}
+
+void ventasManager::mostrarVenta(Venta obj){
+
+}
+
+
+
+//////////////////////////////   SUBMENUS   ///////////////////////////////////////////
+
+void ventasManager::submenuCargarVenta(){
+    int id_venta, sala, pelicula, asientos_vendidos, finProceso;
+    Fecha fecha_venta;
+    float total, precio_x_butaca = 400;
+
+    system("cls");
+    cout << "----------------------------------------------------" << endl;
+    cout << "                ALTA - VENTA " << endl;
+    cout << "----------------------------------------------------" << endl;
+
+    do
+    {
+        system("cls");
+        id_venta = archVenta.generarIdVenta();
+        obj.setIdVenta(id_venta);
+        cout << "=============================================================="<< endl;
+        cout << "VENTA NRO " << id_venta << endl;
+        cout << "--------------------------------" << endl;
+        cout << "REALIZADA EL ";
+        fecha_venta.MostrarFechaActual();
+        cout << endl;
+        cout << endl;
+        cout << "=============================================================="<< endl;
+        cout << "SELECCIONE LA SALA CORRESPONDIENTE: ";
+        cin >> sala;
+        cout << endl;
+        cout << "=============================================================="<< endl;
+        cout << "SELECCIONE LA PELICULA QUE SE EMITIRA: ";
+        cin >> pelicula;
+        cout << endl;
+        cout << "=============================================================="<< endl;
+        cout << "SELECCIONE LA CANTIDAD DE BUTACAS: ";
+        cout << "(PRECIO ACTUAL X BUTACA : " << precio_x_butaca << ")" << endl;
+        cin >> asientos_vendidos;
+        cout << endl;
+        cout << "=============================================================="<< endl;
+
+
+        system("cls");
+        cout << "DESEA INTRODUCIR OTRA SALA? (0  - NO | 1 - SI)" << endl;
+        cout << "INGRESE: ";
+        cin >> finProceso;
+    }while(finProceso != 0);
+}
 
 /*
 void VentasManager::submenuListarVentas() {

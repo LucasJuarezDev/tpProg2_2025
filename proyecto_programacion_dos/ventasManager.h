@@ -7,15 +7,19 @@ class ventasManager
 {
     private:
         Venta obj;
+        Sala venta_sala;
         VentaArchivo archVenta;
+        void cargarCadena(char*, int);
+        void mostrarVenta(Venta);
     public:
+    void submenuCargarVenta();
     void submenuListarVentas();
-    void submenuImporteTotal();
-    void registrarVenta();
-    void cancelarVenta();
-    void buscarVentas();
-    void mostrarVenta();
-    void guardarCambios();
+    //void submenuImporteTotal();
+    //void registrarVenta();
+    //void cancelarVenta();
+    //void buscarVentas();
+    //void mostrarVenta();
+   //void guardarCambios();
 };
 
 #endif // VENTASMANAGER_H_INCLUDED
