@@ -175,6 +175,8 @@ void ventasManager::submenuCargarVenta(){
         cout << endl;
         cout << "=============================================================="<< endl;
         pelicula = ocuparPelicula();
+        obj.setPelicula(pelicula);
+        cout << endl;
         cout << "=============================================================="<< endl;
         cout << "SELECCIONE LA CANTIDAD DE BUTACAS: ";
         cout << "(PRECIO ACTUAL X BUTACA : " << precio_x_butaca << ")" << endl;
