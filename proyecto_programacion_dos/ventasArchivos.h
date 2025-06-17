@@ -7,18 +7,13 @@ class VentaArchivo{
 
 private:
     Venta obj;
-    std::string NombreArchivo;
 
 public:
-    //constructores
-    VentaArchivo();
-    VentaArchivo(std::string nombreArchivo);
-    bool guardarVenta(Venta registro);
+    bool guardarVenta(Venta);
+    Venta leerVenta(int);
     int cantidadRegistros();
-
-
-
-
+    int generarIdVenta();
+    int buscarCodigoVenta(int);
 };
 
 

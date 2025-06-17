@@ -4,18 +4,18 @@
 	<windows.h>
 	"Menus.h"
 
-1748904082 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
+1748905004 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
 	"salasManager.h"
 	"ventasManager.h"
 
-1747320944 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+1750120590 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
 	<ctime>
 
-1747320930 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
+1750120580 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
 	<iostream>
 	<string>
 
@@ -111,17 +111,27 @@
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1747779379 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750121070 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+	"ventas.h"
+	<cstring>
 
-1747779392 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+1750121271 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+	"ventasArchivos.h"
+	<iostream>
 
-1747779406 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750123941 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+	"VentasManager.h"
+	<iostream>
+	<iomanip>
+	<limits>
 
 1747923185 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
 	"salasArchivos.h"
 	"Salas.h"
 
-1747779667 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750121368 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+	"Ventas.h"
+	"ventasArchivos.h"
 
 1747779667 f1007d4ce3afb37babb99a14cd24c5bc9624d
 
@@ -156,4 +166,11 @@
 	<iostream>
 	<cstring>
 	<iomanip>
+
+1750121145 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
+	<string>
+	"Ventas.h"
+
+1750120993 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
+	"Fecha.h"
 

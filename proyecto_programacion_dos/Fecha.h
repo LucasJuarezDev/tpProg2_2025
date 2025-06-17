@@ -19,7 +19,7 @@ public:
     void setAnio(int _Anio);
     void MostrarFechaActual();
     Fecha ReturnFechaActual();
-    //void CargarFecha();
+    void CargarFecha();
 };
 
 

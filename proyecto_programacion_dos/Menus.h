@@ -205,14 +205,74 @@ void Menu3()
         cout << "|                                            |" << endl;
         cout << "| 3)  BUSCAR VENTAS POR FECHA                |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 4)  INFORME - VENTA POR PELICULA           |" << endl;
-        cout << "|                                            |" << endl;
-        cout << "| 5)  INFORME - VENTAS EN EL DIA             |" << endl;
-        cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
         cout << "+--------------------------------------------+" << endl;
         cout << "INGRESE: ";
+        cin >> opcion;
+
+        switch(opcion){
+            case 1:
+                {
+
+                    system("pause");
+                }
+                break;
+            case 2:
+                {
+
+                    system("pause");
+                }
+                break;
+            case 3:
+                {
+
+                    system("pause");
+                }
+                break;
+            case 0:
+                {
+                    return;
+                }
+                break;
+            default:
+                if(cin.fail())
+                {
+                cin.clear();
+                cin.ignore();
+                cout << "OPCION INCORRECTA" << endl;
+                system("pause");
+                }
+            break;
+        }
+
+    }
+}
+
+void Menu4()
+{
+    int opcion;
+    while (true){
+        system("cls");
+cout << "+--------------------------------------------+" << endl;
+cout << "|                ESTADISTICAS                |" << endl;
+cout << "+--------------------------------------------+" << endl;
+cout << "|                                            |" << endl;
+cout << "| 1) RECAUDACION TOTAL POR PELICULA          |" << endl;
+cout << "|    EN CARTELERA                            |" << endl;
+cout << "|                                            |" << endl;
+cout << "| 2) VENTAS POR MES                          |" << endl;
+cout << "|                                            |" << endl;
+cout << "| 3) BUTACAS DISPONIBLES POR FUNCION         |" << endl;
+cout << "|                                            |" << endl;
+cout << "| 4) PELICULA MAS VISTA POR MES              |" << endl;
+cout << "|                                            |" << endl;
+cout << "| 5) PELICULA MENOS VISTA POR MES            |" << endl;
+cout << "|                                            |" << endl;
+cout << "| 0) MENU ANTERIOR                           |" << endl;
+cout << "|                                            |" << endl;
+cout << "+--------------------------------------------+" << endl;
+cout << "INGRESE: ";
         cin >> opcion;
 
         switch(opcion){

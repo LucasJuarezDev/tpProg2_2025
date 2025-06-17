@@ -1,16 +1,14 @@
 #ifndef VENTASMANAGER_H_INCLUDED
 #define VENTASMANAGER_H_INCLUDED
-
-/**
+#include "Ventas.h"
+#include "ventasArchivos.h"
 
 class ventasManager
 {
-    public:
+    private:
         Venta obj;
         VentaArchivo archVenta;
-    private:
-    VentasManager();
-
+    public:
     void submenuListarVentas();
     void submenuImporteTotal();
     void registrarVenta();
@@ -19,8 +17,5 @@ class ventasManager
     void mostrarVenta();
     void guardarCambios();
 };
-
-#endif // VENTASMANAGER_H_INCLUDED
-*/
 
 #endif // VENTASMANAGER_H_INCLUDED

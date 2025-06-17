@@ -1,35 +1,38 @@
 #ifndef VENTAS_H_INCLUDED
 #define VENTAS_H_INCLUDED
+#include "Fecha.h"
 
 class Venta
 {
 
 private:
-
-    char Pelicula[50];
-    int SalaProyecta;
-    int FechaProyeccion;
-    int DniComprador;
-    int CantidadEntradas;
+    int idVenta;
+    int idPelicula;
+    int idSala;
+    Fecha fechaProyeccion;
+    int dniComprador;
+    int cantidadEntradas;
 
 
 public:
 
     Venta();
-    Venta(const char* pelicula, int sala_proyecta, int fecha_proyeccion, int dni_comprador, int cantidad_entradas);
+    Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, int dni, int entradas);
     // getters
-    const char* getPelicula();
+    int getIdVenta();
+    int getPelicula();
     int getSalaProyecta();
-    int getFechaProyeccion();
+    Fecha getFechaProyeccion();
     int getDniComprador();
     int getCantidadEntradas();
 
     // setters
-    void setPelicula(const char* pelicula);
-    void setSalaPyoecta(int sala_proyecta);
-    void setFechaProyeccion(int fecha_proyeccion);
-    void setDniComprador(int dni_comprador);
-    void setCantidadEntradas(int cantidad_entradas);
+    void setIdVenta(int id_venta);
+    void setPelicula(int id_pelicula);
+    void setSalaPyoecta(int id_sala);
+    void setFechaProyeccion(Fecha fecha_proyeccion);
+    void setDniComprador(int dni);
+    void setCantidadEntradas(int entradas);
 
 
 

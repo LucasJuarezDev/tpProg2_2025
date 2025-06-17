@@ -4,42 +4,72 @@
 //constructores
 Venta::Venta(){
 
-    strcpy(Pelicula, "");
-    SalaProyecta = 0;
-    FechaProyeccion = 0;
-    DniComprador = 0;
-    CantidadEntradas = 0;
+    idVenta = 0;
+    idPelicula = 0;
+    idSala = 0;
+    fechaProyeccion = Fecha();
+    dniComprador = 0;
+    cantidadEntradas = 0;
 
 }
 
-Venta::Venta(const char* pelicula, int sala_proyecta, int fecha_proyeccion, int dni_comprador, int cantidad_entradas){
-
-    setPelicula(pelicula);
-    setSalaPyoecta(sala_proyecta);
+Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, int dni, int entradas){
+    setIdVenta(id_venta);
+    setPelicula(id_pelicula);
+    setSalaPyoecta(id_sala);
     setFechaProyeccion(fecha_proyeccion);
-    setDniComprador(dni_comprador);
-    setCantidadEntradas(cantidad_entradas);
+    setDniComprador(dni);
+    setCantidadEntradas(entradas);
 
 
 }
 
 //setters
-void Venta::setPelicula(const char* pelicula){
-    strcpy(Pelicula, pelicula);
+void Venta::setIdVenta(int id_venta){
+    idVenta = id_venta;
 }
 
-void Venta::setSalaPyoecta(int sala_proyecta){
-    SalaProyecta = sala_proyecta;
+void Venta::setPelicula(int id_pelicula){
+    idPelicula = id_pelicula;
 }
 
-void Venta::setFechaProyeccion(int fecha_proyeccion){
-    FechaProyeccion = fecha_proyeccion;
+void Venta::setSalaPyoecta(int id_sala){
+    idSala = id_sala;
 }
 
-void Venta::setDniComprador(int dni_comprador){
-    DniComprador = dni_comprador;
+void Venta::setFechaProyeccion(Fecha fecha_proyeccion){
+    fechaProyeccion = fecha_proyeccion;
 }
 
-void Venta::setCantidadEntradas(int cantidad_entradas){
-    CantidadEntradas = cantidad_entradas;
+void Venta::setDniComprador(int dni){
+    dniComprador = dni;
+}
+
+void Venta::setCantidadEntradas(int entradas){
+    cantidadEntradas = entradas;
+}
+
+//getters
+int Venta::getIdVenta(){
+    return idVenta;
+}
+
+int Venta::getPelicula(){
+    return idPelicula;
+}
+
+int Venta::getSalaProyecta(){
+    return idSala;
+}
+
+Fecha Venta::getFechaProyeccion(){
+    return fechaProyeccion;
+}
+
+int Venta::getDniComprador(){
+    return dniComprador;
+}
+
+int Venta::getCantidadEntradas(){
+    return cantidadEntradas;
 }

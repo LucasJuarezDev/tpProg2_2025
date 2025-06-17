@@ -24,6 +24,7 @@ int main()
         cout << "|     1) PELICULAS                           |" << endl;
         cout << "|     2) SALAS                               |" << endl;
         cout << "|     3) VENTAS                              |" << endl;
+        cout << "|     4) ESTADISTICAS                        |" << endl;
         cout << "|                                            |" << endl;
         cout << "|     0) SALIR                               |" << endl;
         cout << "|                                            |" << endl;
@@ -44,6 +45,11 @@ int main()
             case 3:
                 {
                     Menu3();
+                }
+                break;
+            case 4:
+                {
+                    Menu4();
                 }
                 break;
             case 0:

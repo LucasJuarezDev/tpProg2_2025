@@ -1,20 +1,12 @@
 #include "ventasArchivos.h"
 #include <iostream>
 using namespace std;
-VentaArchivo::VentaArchivo(){
-    NombreArchivo = "ventas.dat";
-}
-
-VentaArchivo::VentaArchivo(std::string nombreArchivo){
-    NombreArchivo = nombreArchivo;
-}
-
 
 bool VentaArchivo::guardarVenta(Venta registro){
 
     FILE *p;
     bool Escritura;
-    p = fopen(NombreArchivo.c_str(), "ab");
+    p = fopen("VENTAS.DAT", "ab");
     if(p == nullptr){
         cout<<"NO PUDO ABRIR GUARDADO"<<endl;
         return false;
@@ -26,11 +18,27 @@ bool VentaArchivo::guardarVenta(Venta registro){
 
 }
 
+Venta VentaArchivo::leerVenta(int indice){
+    FILE *p;
+
+    p = fopen("VENTAS.DAT", "rb");
+    if(p == nullptr)
+    {
+        cout << "NO PUDO ABRIR LECTURA" << endl;
+        return obj;
+    }
+
+    fseek(p, sizeof(Venta) * indice, SEEK_SET);
+    fread(&obj, sizeof(Venta), 1, p);
+    fclose(p);
+    return obj;
+}
+
 int VentaArchivo::cantidadRegistros(){
 
     int tamRegistro, total, cantidad;
     FILE *p;
-    p = fopen(NombreArchivo.c_str(), "rb");
+    p = fopen("VENTAS.DAT", "rb");
 
     if(p == nullptr){
         return 0;
@@ -44,4 +52,40 @@ int VentaArchivo::cantidadRegistros(){
     fclose(p);
     return cantidad;
 
+}
+
+int VentaArchivo::generarIdVenta(){
+    int cantidad = cantidadRegistros();
+
+    if(cantidad > 0)
+    {
+        return leerVenta(cantidad - 1).getIdVenta() + 1;
+    }else
+    {
+        return 1;
+    }
+}
+
+int VentaArchivo::buscarCodigoVenta(int Cod){
+    FILE *p;
+    int pos = 0;
+
+    p = fopen("VENTAS.DAT", "rb");
+    if(p == nullptr)
+    {
+        cout << "ERROR DE ARCHIVO" << endl;
+        return -1; //retorna -1 en caso de error
+    }
+
+    while(fread(&obj, sizeof(Venta), 1, p) == 1) //el ciclo itera hasta encontrar el objeto
+    {
+        if(obj.getIdVenta() == Cod)
+        {
+            fclose(p);
+            return pos; //una vez encontrado retorna la posicion
+        }
+        pos ++;
+    }
+    fclose(p);
+    return -2;// retorna -2 en caso de no encontrarlo en el archivo
 }

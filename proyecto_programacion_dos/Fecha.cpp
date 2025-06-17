@@ -84,4 +84,4 @@ void Fecha::CargarFecha() {
     setMes(mes);
     setAnio(anio);
 }
-*/
+

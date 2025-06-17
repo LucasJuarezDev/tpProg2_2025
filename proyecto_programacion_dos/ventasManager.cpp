@@ -1,9 +1,9 @@
-/**
 #include "VentasManager.h"
 #include <iostream>
 #include <iomanip>
 #include <limits>
 
+/*
 void VentasManager::submenuListarVentas() {
     if (listaVentas.empty()) {
         cout << "No hay ventas registradas." << endl;
