@@ -18,8 +18,8 @@ class ventasManager
         peliculaManager managerPelicula;
         void cargarCadena(char*, int);
         void mostrarVenta(Venta);
-        void mostrarSala();
-        int ocuparSala();
+        void mostrarSala(int);
+        int ocuparSala(int);
         int ocuparPelicula();
     public:
     void submenuCargarVenta();

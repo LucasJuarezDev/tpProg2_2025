@@ -76,6 +76,33 @@ int salaManager::configurarButacas()
     return butacas;
 }
 
+const char * salaManager::denominacionXtamanio(int butacas){ //metodo para luego saber que tamaño tenia la sala al resetearla
+    char aux[50];
+
+    switch(butacas){
+        case 150:
+            {
+                return "SMALL";
+            }
+            break;
+        case 300:
+            {
+                return "MEDIUM";
+            }
+            break;
+        case 500:
+            {
+                return "LARGE";
+            }
+            break;
+        case 700:
+            {
+                return "MEGA";
+            }
+            break;
+    }
+}
+
 int salaManager::configurarTipoSala()
 {
     int selector;
@@ -125,10 +152,13 @@ int salaManager::configurarTipoSala()
     return tipo;
 }
 
+
+
 void salaManager::modificarSala(Sala &obj)
 {
     int opcion, butacas, tipo_sala;
     char sala[50];
+    char denominacion[50];
 
     do
     {
@@ -159,6 +189,8 @@ void salaManager::modificarSala(Sala &obj)
         {
             butacas = configurarButacas();
             obj.setButacas(butacas);
+            strcpy(denominacion, denominacionXtamanio(butacas));
+            obj.setDenominacionSala(denominacion);
             cout << endl;
             break;
         }
@@ -184,9 +216,10 @@ void salaManager::mostrarSala(Sala obj)
     cout << "SALA NRO " << obj.getIdSala() << endl;
     cout << "*****************************" << endl;
     cout << "SALA " << obj.getNombreSala() << endl;
-    cout << "CALIDAD : " << (obj.getTipoSala() == 1 ? "ESTANDAR" : (obj.getTipoSala() == 2) ? "PREMIUM" : "CONFORT PLUS")<< endl;
+    cout << "CALIDAD " << (obj.getTipoSala() == 1 ? "ESTANDAR" : (obj.getTipoSala() == 2) ? "PREMIUM" : "CONFORT PLUS")<< endl;
+    cout << "TAMANIO " << obj.getDenominacionSala() << endl;
     cout << "CANTIDAD DE ASIENTOS : " << obj.getButacas() << endl;
-    cout << "DISPONIBLE: " << (!obj.getSalaOcupada() ? "SI" : "NO")<< endl;
+    cout << "DISPONIBLE: " << (obj.getSalaOcupada() ? "SI" : "NO")<< endl;
     cout << "EN FUNCIONAMIENTO: " << (obj.getActivo() ? "SI" : "NO")<< endl;
     cout << "*****************************" << endl;
 }
@@ -246,6 +279,7 @@ void salaManager::submenuAnadirSala()
     Sala obj;
     int id_sala, tipo_sala, butacas, authenticator, finProceso;
     char sala[50];
+    char denominacion[50];
 
     system("cls");
     cout << "----------------------------------------------------" << endl;
@@ -284,6 +318,8 @@ void salaManager::submenuAnadirSala()
         obj.setTipoSala(tipo_sala);
         cout << endl;
         cout << "=============================================================="<< endl;
+        strcpy(denominacion, denominacionXtamanio(butacas));
+        obj.setDenominacionSala(denominacion);
         obj.setSalaOcupada(false);
         obj.setActivo(true);
 

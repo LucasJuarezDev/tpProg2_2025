@@ -417,7 +417,8 @@ void peliculaManager::submenuCartelera(int menus)
     case 1:
         {
             do
-            {
+            { //AGREGAR A CARTELERA
+                char agregado [100];
                 submenuListarPeliculas(3);
                 cout << endl;
                 cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
@@ -433,7 +434,7 @@ void peliculaManager::submenuCartelera(int menus)
 
                         cine = archPelicula.leerPelicula(x);
                         if (cine.getIdPelicula() == selector && !cine.getEnCartelera()){// Una vez encontrada modifico y guardo en el archivo
-
+                            strcpy(agregado, cine.getNombre());
                             cine.setEnCartelera(true);
                             archPelicula.SobreescribirPelicula(pos, cine);
                             encontro = true;
@@ -457,6 +458,8 @@ void peliculaManager::submenuCartelera(int menus)
                 if(encontro)
                 {
                     encontro = false;
+                    system("cls");
+                    cout << "USTED AGREGO A CARTELERA: " << agregado << endl;
                     cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
                     cout << endl;
                     cout << "OPCION: ";
@@ -465,10 +468,11 @@ void peliculaManager::submenuCartelera(int menus)
             }while(finProceso != 0);
         }
         break;
-    case 2:
+    case 2: //BORRAR EN CARTELERA
         {
             do
             {
+                char saque[100];
                 submenuListarPeliculas(3, true);
                 cout << endl;
                 cout << "(INGRESE '0' EN CASO DE QUERER VOLVER AL MENU PRINCIPAL)" << endl;
@@ -484,7 +488,7 @@ void peliculaManager::submenuCartelera(int menus)
 
                         cine = archPelicula.leerPelicula(x);
                         if (cine.getIdPelicula() == selector && cine.getEnCartelera()){// Una vez encontrada modifico y guardo en el archivo
-
+                            strcpy(saque, cine.getNombre());
                             cine.setEnCartelera(false);
                             archPelicula.SobreescribirPelicula(pos, cine);
                             encontro = true;
@@ -508,6 +512,8 @@ void peliculaManager::submenuCartelera(int menus)
                 if(encontro)
                 {
                     encontro = false;
+                    system("cls");
+                    cout << "USTED SACO DE CARTELERA: " << saque << endl;
                     cout << "PELICULA ENCONTRADA! DESEA SEGUIR BUSCANDO? (0 - NO / 1 - SI)" << endl;
                     cout << endl;
                     cout << "OPCION: ";

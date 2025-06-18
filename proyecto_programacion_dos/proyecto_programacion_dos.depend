@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1750124736 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1750272579 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
@@ -81,7 +81,7 @@
 
 1747348553 .h"
 
-1747763516 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+1750274323 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
 	"peliculasManager.h"
 	<iostream>
 	<cstring>
@@ -95,23 +95,23 @@
 	"salasArchivos.h"
 	<iostream>
 
-1750126177 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+1750270782 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
 	"peliculasManager.h"
 	"salasManager.h"
 	<iostream>
 	<cstring>
 	<iomanip>
 
-1747845972 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.cpp
+1750269189 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.cpp
 	"Salas.h"
 	<cstring>
 
-1747845942 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.h
+1750269108 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salas.h
 
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1750182347 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750187429 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
 	"ventas.h"
 	<cstring>
 
@@ -119,17 +119,19 @@
 	"ventasArchivos.h"
 	<iostream>
 
-1750185538 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750273150 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 	"VentasManager.h"
 	<iostream>
 	<cstring>
 	<iomanip>
+	<cstdlib>
+	<ctime>
 
-1747923185 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
+1750270376 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
 	"salasArchivos.h"
 	"Salas.h"
 
-1750186299 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750266426 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
 	"Ventas.h"
 	"Salas.h"
 	"Peliculas.h"

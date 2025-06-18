@@ -8,12 +8,13 @@ Sala::Sala()
     IdSala = 0;
     strcpy(NombreSala, "");
     TipoSala = 0;
+    strcpy(DenominacionSala, "");
     Butacas = 0;
     SalaOcupada = false;
     Activo = false;
 }
 
-Sala::Sala(int id, const char* nombre, int tipo, int butacas, bool sala_ocupada, bool activo)
+Sala::Sala(int id, const char* nombre, int tipo, const char * denominacion_sala, int butacas, bool sala_ocupada, bool activo)
 {
     setIdSala(id);
     setNombreSala(nombre);
@@ -24,6 +25,9 @@ Sala::Sala(int id, const char* nombre, int tipo, int butacas, bool sala_ocupada,
 }
 
 //setters
+void Sala::setDenominacionSala(const char * denominacion_sala){
+    strcpy(DenominacionSala, denominacion_sala);
+}
 
 void Sala::setIdSala(int id){
     IdSala = id;
@@ -49,6 +53,9 @@ void Sala::setActivo(bool activo){
     Activo = activo;
 }
 //getters
+const char * Sala::getDenominacionSala(){
+    return DenominacionSala;
+}
 
 int Sala::getIdSala(){
     return IdSala;

@@ -12,6 +12,7 @@ private:
     int configurarButacas();
     int configurarTipoSala();
     void modificarSala(Sala&);
+    const char * denominacionXtamanio(int);
 public:
     void submenuListarSalas(int menus = 1, bool condicional = false);
     void submenuAnadirSala();
