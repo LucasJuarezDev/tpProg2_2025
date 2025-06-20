@@ -10,17 +10,21 @@
 class ventasManager
 {
     private:
+        //atributos
         Venta obj;
         Sala venta_sala;
         Pelicula peli;
         VentaArchivo archVenta;
         peliculaArchivo archPelicula;
         peliculaManager managerPelicula;
+        //metodos
         void cargarCadena(char*, int);
         void mostrarVenta(Venta);
-        void mostrarSala(int);
+        bool mostrarSala(int);
         int ocuparSala(int);
         int ocuparPelicula();
+        int seleccionHorario();
+        const char * asignarHorario(int);
     public:
     void submenuCargarVenta();
     void submenuListarVentas();

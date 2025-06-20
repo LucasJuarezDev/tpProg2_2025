@@ -22,11 +22,79 @@ void ventasManager :: cargarCadena(char *Palabra, int Tamanio)
     fflush(stdin);
 }
 
+int ventasManager::seleccionHorario(){
+    int opcion;
+    bool encontro = false;
+
+    do
+    {
+        cout << "+--------------------------+" << endl;
+        cout << "|  SELECCION DE HORARIOS   |" << endl;
+        cout << "+--------------------------+" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     1) 14 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     2) 16 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     3) 17 : 30           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     4) 18 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     5) 19 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     6) 20 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     7) 21 : 30           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     8) 22 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|     9) 23 : 15           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|    10) 00 : 00           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "|    11) 00 : 30           |" << endl;
+        cout << "|                          |" << endl;
+        cout << "+--------------------------+" << endl;
+        cout << "INGRESE: ";
+        cin >> opcion;
+
+        if(opcion >= 1 && opcion <= 11){
+            encontro = true;
+        } else {
+            cout << "OPCION INVALIDA. INTENTE NUEVAMENTE." << endl;
+            system("pause");
+        }
+
+    }while(!encontro);
+
+    return opcion;
+}
+
+const char * ventasManager::asignarHorario(int opcionElegida){
+    switch(opcionElegida) {
+        case 1:  return "14:00";
+        case 2:  return "16:00";
+        case 3:  return "17:30";
+        case 4:  return "18:00";
+        case 5:  return "19:00";
+        case 6:  return "20:00";
+        case 7:  return "21:30";
+        case 8:  return "22:00";
+        case 9:  return "23:15";
+        case 10: return "00:00";
+        case 11: return "00:30";
+    }
+}
+
 void ventasManager::mostrarVenta(Venta obj){
     srand(time(NULL));
-    peli = archPelicula.leerPelicula(obj.getPelicula()); //obtengo datos de la peli con su id
+    peli = archPelicula.leerPelicula(obj.getPelicula() - 1); //obtengo datos de la peli con su id - LE RESTO UNO AL ID PORQUE LO DEVOLVIA SUMANDOLE 1
     venta_sala = archVenta.leerSala(obj.getSalaProyecta()); // obtengo datos de la sala con el id captado
     int capacidad, asiento, horario = 0;
+
+    int horas    = peli.getDuracion() / 60;
+    int minutos  = peli.getDuracion() % 60;
+    int segundos = 0;
 
     if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidad = 150;
     else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidad = 300;
@@ -41,11 +109,11 @@ void ventasManager::mostrarVenta(Venta obj){
     cout << "+-----------------------------------------+" << endl;
     cout << "| Pelicula:     " << peli.getNombre() << endl;
     cout << "| Director:     " << peli.getDirectorNombre() << " " << peli.getDirectorApellido() << endl;
-    cout << "| Duracion:     " << peli.getDuracion() << endl;
+    cout << "| Duracion:     " << setfill('0') << setw(2) << horas << ":" << setfill('0') << setw(2) << minutos << ":" << setfill('0') << setw(2) << segundos << endl;
     cout << "+-----------------------------------------+" << endl;
     cout << "| Sala:         " << venta_sala.getNombreSala() << endl;
     cout << "| Asiento N:   " << asiento << endl;
-    cout << "| Horario:      " << horario << endl;
+    cout << "| Horario:      " << obj.getHorarioFuncion() << endl;
     cout << "+-----------------------------------------+" << endl;
     cout << "| TOTAL:        $" << obj.getTotalVenta() << endl;
     cout << "+=========================================+" << endl;
@@ -53,7 +121,7 @@ void ventasManager::mostrarVenta(Venta obj){
 
 }
 
-void ventasManager::mostrarSala(int asientos_vendidos){ // metodo privador para realizar el muestreo de salas disponibles para la venta
+bool ventasManager::mostrarSala(int asientos_vendidos){ // metodo privador para realizar el muestreo de salas disponibles para la venta
     bool encontro = false;
     int cantidad = archVenta.ContarRegistrosSala();
     int butacasRestantes = 0, butacasActuales = 0;
@@ -64,7 +132,7 @@ void ventasManager::mostrarSala(int asientos_vendidos){ // metodo privador para 
             butacasActuales = venta_sala.getButacas();
             butacasRestantes = butacasActuales - asientos_vendidos; //filtro directamente las salas compatibles con la cantidad de asientos que se vendan
 
-            if(venta_sala.getActivo() && butacasRestantes > 0) //si la sala no esta ocupada y las butacas restantes son mayor a 0, muestro la sala a elegir
+            if(venta_sala.getActivo() && butacasRestantes >= 0) //si la sala no esta ocupada y las butacas restantes son mayor a 0, muestro la sala a elegir
             {
                 cout << "=================================================" << endl;
                 cout << "SALA NRO " << venta_sala.getIdSala() << endl;
@@ -84,15 +152,17 @@ void ventasManager::mostrarSala(int asientos_vendidos){ // metodo privador para 
         }
         if(!encontro)
         {
-            cout << "TODAS LAS SALAS OCUPADAS.." << endl;
+            cout << "SALAS NO DISPONIBLES PARA LA CANTIDAD DE BUTACAS REQUERIDAS." << endl << endl;
             system("pause");
-            return;
         }
 
 
     }else{
-        cout << "NO HAY SALAS DISPONIBLES ACTUALMENTE.." << endl;
+        cout << "ERROR" << endl;
+        cout << "------------" << endl;
+        cout << "CONTACTE CON SOPORTE TECNICO." << endl;
     }
+    return encontro;
 }
 
 int ventasManager::ocuparSala(int asientos_vendidos){ // metodo interno para sobreescribir los datos (pasar sala = ocupada y asientos disponibles)
@@ -103,7 +173,8 @@ int ventasManager::ocuparSala(int asientos_vendidos){ // metodo interno para sob
 
     do
     {
-        mostrarSala(asientos_vendidos);
+        bool salaDisponible = mostrarSala(asientos_vendidos);
+        if(!salaDisponible) return -2;
         cout << "SELECCIONE LA SALA CORRESPONDIENTE: ";
         cin >> sala;
         cout << endl;
@@ -114,7 +185,7 @@ int ventasManager::ocuparSala(int asientos_vendidos){ // metodo interno para sob
             for (int x = 0; x < cantidad; x++){ // Recorro todo el archivo de prendas
 
                 venta_sala = archVenta.leerSala(x);
-                if (venta_sala.getIdSala() == sala && venta_sala.getActivo()){// Una vez encontrada modifico y guardo en el archivo
+                if (venta_sala.getIdSala() == sala && venta_sala.getActivo() && venta_sala.getButacas() > 0){// Una vez encontrada modifico y guardo en el archivo
 
                     id_sala = venta_sala.getIdSala(); //me llevo el id de la sala para luego al salir del metodo quedarmelo
                     asientos_disponibles = venta_sala.getButacas() - asientos_vendidos; //si todo esta ok, hago el calculo de asientos actuales
@@ -189,9 +260,10 @@ int ventasManager :: ocuparPelicula(){
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
 
 void ventasManager::submenuCargarVenta(){
-    int id_venta, sala, pelicula, asientos_vendidos, finProceso;
+    int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida;
     Fecha fecha_venta;
     float total, precio_x_butaca = 400;
+    char horario[10];
 
     system("cls");
     cout << "----------------------------------------------------" << endl;
@@ -214,9 +286,15 @@ void ventasManager::submenuCargarVenta(){
         cout << "SELECCIONE LA CANTIDAD DE BUTACAS: ";
         cout << "(PRECIO ACTUAL X BUTACA : " << precio_x_butaca << ")" << endl;
         cin >> asientos_vendidos;
+        obj.setCantidadEntradas(asientos_vendidos);
         cout << endl;
         cout << "=============================================================="<< endl;
         sala = ocuparSala(asientos_vendidos);
+        if (sala == -2) {
+            cout << "NO SE PUEDE COMPLETAR LA VENTA. VOLVIENDO AL MENU." << endl;
+            system("pause");
+            return;  // salir de la función si no hay sala valida
+        }
         obj.setSalaProyectada(sala);
         cout << endl;
         cout << "=============================================================="<< endl;
@@ -224,8 +302,14 @@ void ventasManager::submenuCargarVenta(){
         obj.setPelicula(pelicula);
         cout << endl;
         cout << "=============================================================="<< endl;
+        opcionElegida = seleccionHorario();
+        strcpy(horario, asignarHorario(opcionElegida));
+        obj.setHorarioFuncion(horario);
+        cout << endl;
+        cout << "=============================================================="<< endl;
         total = asientos_vendidos * precio_x_butaca;
         obj.setTotalVenta(total);
+
 
         system("cls");
         cout << "VENTA CONFIRMADA" << endl;

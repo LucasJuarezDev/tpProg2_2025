@@ -122,9 +122,11 @@ void Menu2()
         cout << "|                                            |" << endl;
         cout << "| 5)  MODIFICAR SALA                         |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 6)  DAR DE BAJA                            |" << endl;
+        cout << "| 6)  RESTABLECER DISPONIBILIDAD DE USO      |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 7)  DAR DE ALTA                            |" << endl;
+        cout << "| 7)  HABILITAR FUNCIONAMIENTO               |" << endl;
+        cout << "|                                            |" << endl;
+        cout << "| 8)  DESHABILITAR FUNCIONAMIENTO            |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
@@ -162,12 +164,17 @@ void Menu2()
                 break;
             case 6:
                 {
-                    Salas.submenuBajaSala();
+                    Salas.submenuBajaSala(false, true);
                 }
                 break;
             case 7:
                 {
                     Salas.submenuBajaSala(true);
+                }
+                break;
+            case 8:
+                {
+                    Salas.submenuBajaSala();
                 }
                 break;
             case 0:
