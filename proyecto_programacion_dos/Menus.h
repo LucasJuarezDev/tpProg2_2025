@@ -209,9 +209,7 @@ void Menu3()
         cout << "|                                            |" << endl;
         cout << "| 1)  NUEVA VENTA                            |" << endl;
         cout << "|                                            |" << endl;
-        cout << "| 2)  LISTAR VENTAS                          |" << endl;
-        cout << "|                                            |" << endl;
-        cout << "| 3)  BUSCAR VENTAS POR FECHA                |" << endl;
+        cout << "| 2)  LISTAR VENTAS POR ...                  |" << endl;
         cout << "|                                            |" << endl;
         cout << "| 0)  MENU ANTERIOR                          |" << endl;
         cout << "|                                            |" << endl;
@@ -228,14 +226,7 @@ void Menu3()
                 break;
             case 2:
                 {
-                    //Ventas.submenuListarVentas();
-                    system("pause");
-                }
-                break;
-            case 3:
-                {
-
-                    system("pause");
+                    Ventas.submenuListarVentas();
                 }
                 break;
             case 0:

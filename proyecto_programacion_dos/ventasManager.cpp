@@ -87,20 +87,13 @@ const char * ventasManager::asignarHorario(int opcionElegida){
 }
 
 void ventasManager::mostrarVenta(Venta obj){
-    srand(time(NULL));
     peli = archPelicula.leerPelicula(obj.getPelicula() - 1); //obtengo datos de la peli con su id - LE RESTO UNO AL ID PORQUE LO DEVOLVIA SUMANDOLE 1
-    venta_sala = archVenta.leerSala(obj.getSalaProyecta()); // obtengo datos de la sala con el id captado
-    int capacidad, asiento, horario = 0;
+    venta_sala = archVenta.leerSala(obj.getSalaProyecta() - 1); // obtengo datos de la sala con el id captado
+    int capacidad, horario = 0;
 
     int horas    = peli.getDuracion() / 60;
     int minutos  = peli.getDuracion() % 60;
     int segundos = 0;
-
-    if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidad = 150;
-    else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidad = 300;
-    else if (strcmp(venta_sala.getDenominacionSala(), "LARGE") == 0) capacidad = 500;
-    else if (strcmp(venta_sala.getDenominacionSala(), "MEGA") == 0) capacidad = 700;
-    asiento = (rand() % capacidad) + 1;
 
     cout << "+=========================================+" << endl;
     cout << "|         TICKET DE VENTA DE CINE         |" << endl;
@@ -111,8 +104,9 @@ void ventasManager::mostrarVenta(Venta obj){
     cout << "| Director:     " << peli.getDirectorNombre() << " " << peli.getDirectorApellido() << endl;
     cout << "| Duracion:     " << setfill('0') << setw(2) << horas << ":" << setfill('0') << setw(2) << minutos << ":" << setfill('0') << setw(2) << segundos << endl;
     cout << "+-----------------------------------------+" << endl;
-    cout << "| Sala:         " << venta_sala.getNombreSala() << endl;
-    cout << "| Asiento N:   " << asiento << endl;
+    cout << "| Sala:         " << venta_sala.getNombreSala();
+    cout << " - " << venta_sala.getDenominacionSala() << endl;
+    cout << "| Asiento N:    " << obj.getAsientoComprador() << endl;
     cout << "| Horario:      " << obj.getHorarioFuncion() << endl;
     cout << "+-----------------------------------------+" << endl;
     cout << "| TOTAL:        $" << obj.getTotalVenta() << endl;
@@ -260,10 +254,11 @@ int ventasManager :: ocuparPelicula(){
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
 
 void ventasManager::submenuCargarVenta(){
-    int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida;
+    srand(time(NULL));
+    int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida, dni, capacidadSala = 0;
     Fecha fecha_venta;
     float total, precio_x_butaca = 400;
-    char horario[10];
+    char horario[10], tipoSala[50];
 
     system("cls");
     cout << "----------------------------------------------------" << endl;
@@ -307,16 +302,115 @@ void ventasManager::submenuCargarVenta(){
         obj.setHorarioFuncion(horario);
         cout << endl;
         cout << "=============================================================="<< endl;
+        do {
+            cout << "CONFIRMACION DE COMPRA - DNI DEL CLIENTE: ";
+            cin >> dni;
+            if (cin.fail() || dni < 1000000 || dni > 99999999) {
+                cout << "DNI invalido. Debe tener entre 7 y 8 digitos." << endl;
+                cin.clear();
+                cin.ignore(1000, '\n');
+                system("pause");
+            } else {
+                obj.setDniComprador(dni);
+                break;
+            }
+        }while(true);
+        cout << endl;
+        cout << "=============================================================="<< endl;
         total = asientos_vendidos * precio_x_butaca;
         obj.setTotalVenta(total);
+        venta_sala = archVenta.leerSala(sala - 1);
+        strcpy(tipoSala, venta_sala.getDenominacionSala());
 
+        if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidadSala = 150;
+        else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidadSala = 300;
+        else if (strcmp(venta_sala.getDenominacionSala(), "LARGE") == 0) capacidadSala = 500;
+        else if (strcmp(venta_sala.getDenominacionSala(), "MEGA") == 0) capacidadSala = 700;
+
+        for(int x = 0 ; x < obj.getCantidadEntradas() ; x ++){
+            Venta nuevaVenta = obj;
+            int asientoAleatorio = (rand() % capacidadSala) + 1;
+            nuevaVenta.setCompradorAsiento(asientoAleatorio);
+            archVenta.guardarVenta(nuevaVenta);
+        }
 
         system("cls");
         cout << "VENTA CONFIRMADA" << endl;
-        mostrarVenta(obj);
+        int posicionInicial = archVenta.cantidadRegistros() - obj.getCantidadEntradas(); //me pos
+
+        for (int x = 0; x < obj.getCantidadEntradas(); x++) {
+            Venta v = archVenta.leerVenta(posicionInicial + x);
+            mostrarVenta(v);
+        }
         cout << "DESEA REALIZAR OTRA VENTA? (0  - NO | 1 - SI)" << endl;
         cout << "INGRESE: ";
         cin >> finProceso;
+    }while(finProceso != 0);
+}
+
+void ventasManager::submenuListarVentas(){
+    int selector, finProceso, resultado;
+    int cantidad = archVenta.cantidadRegistros();
+    bool encontrada = false, fin = false;
+
+    do
+    {
+        system("cls");
+        cout << "+-------------------------------------------+" << endl;
+        cout << "|            DASHBOARD DE VENTAS            |" << endl;
+        cout << "+===========================================+" << endl;
+        cout << "|            TIPOS DE LISTADOS              |" << endl;
+        cout << "+*******************************************+" << endl;
+        cout << "|            1   - TODAS                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            2   - POR FECHA                |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            3   - POR HORARIO              |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            4   - ATRAS                    |" << endl;
+        cout << "+-------------------------------------------+" << endl;
+        cout << "INGRESE: ";
+        cin >> selector;
+
+        switch(selector){
+            case 1:
+                {
+                    system("cls");
+                    for(int x = 0 ; x < cantidad ; x ++){
+                        obj = archVenta.leerVenta(x);
+                        mostrarVenta(obj);
+                    }
+                }
+                system("pause");
+                break;
+            case 2:
+                {
+
+                }
+                break;
+            case 3:
+                {
+
+                }
+                break;
+            case 4:
+                {
+                    return;
+                }
+                break;
+            default:
+                {
+                    if(cin.fail())
+                    {
+                    cin.clear();
+                    cin.ignore();
+                    cout << "OPCION INCORRECTA, INGRESE UNA VALIDA." << endl;
+                    system("pause");
+                    }
+                }
+                break;
+        }
+
     }while(finProceso != 0);
 }
 
