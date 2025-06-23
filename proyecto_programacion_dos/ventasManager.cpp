@@ -275,6 +275,7 @@ void ventasManager::submenuCargarVenta(){
         cout << "--------------------------------" << endl;
         cout << "REALIZADA EL ";
         fecha_venta.MostrarFechaActual();
+        obj.setFechaProyeccion(fecha_venta);
         cout << endl;
         system("pause");
         cout << "=============================================================="<< endl;
@@ -385,7 +386,40 @@ void ventasManager::submenuListarVentas(){
                 break;
             case 2:
                 {
+                 system("cls");
+                    Fecha _fecha;
+                    int dia, mes, anio = 0;
+                    bool correcto = false;
+                    while(correcto == false)
+                        {
+                        cout << "Ingrese el anio: " ;
+                        cin >> anio;
+                        cout << endl << "Ingrese el mes: " ;
+                        cin >> mes;
+                        cout << endl << "Ingrese el dia: ";
+                        cin >> dia;
 
+                        if(anio >= 2020 && anio <= 2030 && mes >=1 && mes <=12 && dia >= 1 && dia <=31)
+                            {
+                            correcto = true;
+                            }
+                        else
+                            {
+                            cout << "La fecha ingresada es incorrecta, por favor ingrese una fecha nuevamente";
+                            system ("pause");
+                            }
+                        }
+
+                    for(int y = 0 ; y < cantidad ; y ++)
+                        {
+                        obj = archVenta.leerVenta(y);
+                        if(obj.getFechaProyeccion().getAnio() == anio && obj.getFechaProyeccion().getMes() == mes && obj.getFechaProyeccion().getDia() == dia)
+                            {
+                            mostrarVenta(obj);
+                            }
+                        }
+                
+                system("pause");
                 }
                 break;
             case 3:
