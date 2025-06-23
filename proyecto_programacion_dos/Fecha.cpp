@@ -10,11 +10,13 @@ Fecha::Fecha(){
     Dia = f->tm_mday;
     Mes = f->tm_mon+1;
     Anio = f->tm_year+1900;
+    Hora = f->tm_hour;
 }
-Fecha::Fecha(int _Dia,int _Mes, int _Anio){
+Fecha::Fecha(int _Dia,int _Mes, int _Anio, int _Hora){
     setDia(_Dia);
     setMes(_Mes);
     setAnio(_Anio);
+    setHora(_Hora);
 }
 
 
@@ -31,6 +33,10 @@ int Fecha::getAnio(){
     return Anio;
 }
 
+int Fecha::getHora(){
+    return Hora;
+}
+
 //setters
 void Fecha::setDia(int _Dia){
     Dia = _Dia;
@@ -44,12 +50,17 @@ void Fecha::setAnio(int _Anio){
     Anio = _Anio;
 }
 
+void Fecha::setHora(int _Hora){
+    Hora = _Hora;
+}
+
 //mostrar fecha
 void Fecha ::MostrarFechaActual()
 {
     Fecha obj;
-    cout << obj.getDia() << "/" << obj.getMes() << "/" << obj.getAnio() << endl;
+    cout << obj.getDia() << "/" << obj.getMes() << "/" << obj.getAnio() << " A LAS " << obj.getHora() << ":00 hs. APROX." << endl;
 }
+
 
 Fecha Fecha:: ReturnFechaActual()
 {
