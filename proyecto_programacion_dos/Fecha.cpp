@@ -58,7 +58,7 @@ void Fecha::setHora(int _Hora){
 void Fecha ::MostrarFechaActual()
 {
     Fecha obj;
-    cout << obj.getDia() << "/" << obj.getMes() << "/" << obj.getAnio() << " A LAS " << obj.getHora() << ":00 hs. APROX." << endl;
+    cout << obj.getDia() << "/" << obj.getMes() << "/" << obj.getAnio() << " - " << obj.getHora() << ":00 hs." << endl;
 }
 
 

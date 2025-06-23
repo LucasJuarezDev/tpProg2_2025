@@ -99,6 +99,8 @@ void ventasManager::mostrarVenta(Venta obj){
     cout << "|         TICKET DE VENTA DE CINE         |" << endl;
     cout << "+=========================================+" << endl;
     cout << "| Operacion N: " << obj.getIdVenta() << endl;
+    cout << "| Fecha: ";
+    obj.getFechaProyeccion().MostrarFechaActual();
     cout << "+-----------------------------------------+" << endl;
     cout << "| Pelicula:     " << peli.getNombre() << endl;
     cout << "| Director:     " << peli.getDirectorNombre() << " " << peli.getDirectorApellido() << endl;
@@ -418,12 +420,12 @@ void ventasManager::submenuListarVentas(){
                             mostrarVenta(obj);
                             }
                         }
-                
+
                 system("pause");
                 }
                 break;
             case 3:
-                {                
+                {
                     system("cls");
                     Fecha _fecha;
                     int hora = 0;
@@ -465,7 +467,7 @@ void ventasManager::submenuListarVentas(){
                         }
                 }
                 system("pause");
-                break;        
+                break;
             case 4:
                 {
                     return;
