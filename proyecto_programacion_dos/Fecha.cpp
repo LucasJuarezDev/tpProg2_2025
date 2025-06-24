@@ -55,9 +55,8 @@ void Fecha::setHora(int _Hora){
 }
 
 //mostrar fecha
-void Fecha ::MostrarFechaActual()
+void Fecha ::MostrarFechaActual(Fecha obj)
 {
-    Fecha obj;
     cout << obj.getDia() << "/" << obj.getMes() << "/" << obj.getAnio() << " - " << obj.getHora() << ":00 hs." << endl;
 }
 
@@ -69,30 +68,32 @@ Fecha Fecha:: ReturnFechaActual()
 
 
 //cargar fecha
-void Fecha::CargarFecha() {
+Fecha Fecha::CargarFecha() {
+    Fecha obj, fecha_retorno;
     int dia, mes, anio;
     bool fechaValida = false;
 
-    while (!fechaValida) {
-        cout << "Ingrese dia: ";
+    do{
+        cout << "FECHA DE FUNCION" << endl;
+        cout << "-------------------------" << endl;
+        cout << "DIA DE LA FUNCION: ";
         cin >> dia;
-        cout << "Ingrese mes: ";
+        cout << "MES DE LA FUNCION: ";
         cin >> mes;
-        cout << "Ingrese anio: ";
-        cin >> anio;
+        fecha_retorno.setAnio(obj.getAnio());
 
         // validacion de la fecha ingresaa
-        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && anio >= 2020 && anio <= 2030) {//el año lo hice entre 2020 y 2030
+        if (dia >= 1 && dia <= 31 && mes >= 1 && mes <= 12 && dia >= obj.getDia() || mes >= obj.getMes()) {//el año lo hice entre 2020 y 2030
+            fecha_retorno.setDia(dia);
+            fecha_retorno.setMes(mes);
             fechaValida = true;
             cout << "Fecha guardada correctamente."<< endl;
             system("pause");
+            return fecha_retorno;
         } else {
-            cout << "Fecha no válida. Por favor, ingrese nuevamente.\n";
+            cout << "Fecha no valida. Por favor, ingrese nuevamente.\n";
         }
-    }
+    }while(!fechaValida);
 
-    setDia(dia);
-    setMes(mes);
-    setAnio(anio);
 }
 

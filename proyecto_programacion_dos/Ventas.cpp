@@ -7,6 +7,7 @@ Venta::Venta(){
     idPelicula = 0;
     idSala = 0;
     fechaProyeccion = Fecha();
+    fechaVenta = Fecha();
     dniComprador = 0;
     compradorAsiento = 0;
     cantidadEntradas = 0;
@@ -14,11 +15,12 @@ Venta::Venta(){
     totalVenta = 0.0f;
 }
 
-Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, int dni, int asiento, int entradas, const char * horarios, float total){
+Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, Fecha fecha_venta, int dni, int asiento, int entradas, const char * horarios, float total){
     setIdVenta(id_venta);
     setPelicula(id_pelicula);
     setSalaProyectada(id_sala);
     setFechaProyeccion(fecha_proyeccion);
+    setFechaVenta(fecha_venta);
     setDniComprador(dni);
     setCompradorAsiento(asiento);
     setCantidadEntradas(entradas);
@@ -28,6 +30,10 @@ Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion,
 }
 
 //setters
+void Venta::setFechaVenta(Fecha fecha_venta){
+    fechaVenta = fecha_venta;
+}
+
 void Venta::setCompradorAsiento(int asiento){
     compradorAsiento = asiento;
 }
@@ -65,6 +71,10 @@ void Venta::setCantidadEntradas(int entradas){
 }
 
 //getters
+Fecha Venta::getFechaVenta(){
+    return fechaVenta;
+}
+
 int Venta::getAsientoComprador(){
     return compradorAsiento;
 }

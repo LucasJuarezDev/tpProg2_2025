@@ -19,9 +19,9 @@ public:
     void setMes(int _Mes);
     void setAnio(int _Anio);
     void setHora(int _Hora);
-    void MostrarFechaActual();
+    void MostrarFechaActual(Fecha);
     Fecha ReturnFechaActual();
-    void CargarFecha();
+    Fecha CargarFecha();
 };
 
 

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <windows.h>
 #include "Menus.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ void SetColor(int color) {
 
 int main()
 {
+    setlocale(LC_ALL, "Spanish");
     SetColor(10);
     int opcion;
     while (true){

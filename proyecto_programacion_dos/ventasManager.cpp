@@ -100,7 +100,7 @@ void ventasManager::mostrarVenta(Venta obj){
     cout << "+=========================================+" << endl;
     cout << "| Operacion N: " << obj.getIdVenta() << endl;
     cout << "| Fecha: ";
-    obj.getFechaProyeccion().MostrarFechaActual();
+    obj.getFechaProyeccion();
     cout << "+-----------------------------------------+" << endl;
     cout << "| Pelicula:     " << peli.getNombre() << endl;
     cout << "| Director:     " << peli.getDirectorNombre() << " " << peli.getDirectorApellido() << endl;
@@ -258,7 +258,7 @@ int ventasManager :: ocuparPelicula(){
 void ventasManager::submenuCargarVenta(){
     srand(time(NULL));
     int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida, dni, capacidadSala = 0;
-    Fecha fecha_venta;
+    Fecha fecha_venta, obj_fecha;
     float total, precio_x_butaca = 400;
     char horario[10], tipoSala[50];
 
@@ -275,9 +275,13 @@ void ventasManager::submenuCargarVenta(){
         cout << "=============================================================="<< endl;
         cout << "VENTA NRO " << id_venta << endl;
         cout << "--------------------------------" << endl;
-        cout << "REALIZADA EL ";
-        fecha_venta.MostrarFechaActual();
-        obj.setFechaProyeccion(fecha_venta);
+        obj_fecha = fecha_venta.CargarFecha();
+        cout << "VENTA REALIZA EL ";
+        obj.getFechaVenta().MostrarFechaActual(fecha_venta);
+        obj.setFechaVenta(fecha_venta);
+        cout << "FECHA DE FUNCION ";
+        obj.getFechaProyeccion().MostrarFechaActual(obj_fecha);
+        obj.setFechaProyeccion(obj_fecha);
         cout << endl;
         system("pause");
         cout << "=============================================================="<< endl;

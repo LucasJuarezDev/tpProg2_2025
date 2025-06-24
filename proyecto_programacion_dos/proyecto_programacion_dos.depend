@@ -35,20 +35,21 @@
 
 1747667715 D
 
-1747348553 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+1750715897 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
 	<ctime>
 
-1747348553 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.h
+1750715892 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\fecha.h
 	<iostream>
 	<string>
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1750714644 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
+	<cstdlib>
 
-1747869133 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\menus.h
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
 	<cstdlib>
 	"peliculasManager.h"
@@ -66,10 +67,10 @@
 	"peliculasArchivo.h"
 	<iostream>
 
-1747866312 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasarchivo.h
 	"Peliculas.h"
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
+1750705185 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\peliculasmanager.cpp
 	"peliculasManager.h"
 	<iostream>
 	<cstring>
@@ -141,18 +142,24 @@
 
 1747779667 f1007d4ce3afb37babb99a14cd24c5bc9624d
 
-1747869030 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salasmanager.h
 	"salasArchivos.h"
 	"Salas.h"
 
 1747866312 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1747866312 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salas.h
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salas.h
 
-1747866312 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+	"Ventas.h"
+	"Salas.h"
+	"Peliculas.h"
+	"peliculasArchivo.h"
+	"peliculasManager.h"
+	"ventasArchivos.h"
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salas.cpp
+1750705185 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salas.cpp
 	"Salas.h"
 	<cstring>
 
@@ -160,13 +167,23 @@
 	"salasArchivos.h"
 	<iostream>
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750716254 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+	"ventas.h"
+	<cstring>
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+1750705185 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.cpp
+	"ventasArchivos.h"
+	<iostream>
 
-1747866312 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750714109 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+	"VentasManager.h"
+	<iostream>
+	<cstring>
+	<iomanip>
+	<cstdlib>
+	<ctime>
 
-1747869097 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
+1750705185 source:c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\salasmanager.cpp
 	"peliculasManager.h"
 	"salasManager.h"
 	<iostream>
@@ -180,4 +197,12 @@
 
 1750533063 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
 	"Fecha.h"
+
+1750716150 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventas.h
+	"Fecha.h"
+
+1750705185 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventasarchivos.h
+	<string>
+	"Ventas.h"
+	"Salas.h"
 
