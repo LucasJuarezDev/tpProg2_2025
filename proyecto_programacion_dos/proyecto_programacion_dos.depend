@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1750272579 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
+1750789699 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\main.cpp
 	<iostream>
 	<windows.h>
 	"Menus.h"
+	<cstdlib>
 
 1750537813 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\menus.h
 	<iostream>
@@ -11,11 +12,11 @@
 	"salasManager.h"
 	"ventasManager.h"
 
-1750695563 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+1750795175 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
 	<ctime>
 
-1750694360 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
+1750794825 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
 	<iostream>
 	<string>
 
@@ -112,7 +113,7 @@
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1750533145 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750795640 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
 	"ventas.h"
 	<cstring>
 
@@ -120,7 +121,7 @@
 	"ventasArchivos.h"
 	<iostream>
 
-1750695519 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750795054 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 	"VentasManager.h"
 	<iostream>
 	<cstring>
@@ -132,7 +133,7 @@
 	"salasArchivos.h"
 	"Salas.h"
 
-1750441842 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750790288 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
 	"Ventas.h"
 	"Salas.h"
 	"Peliculas.h"
@@ -195,7 +196,7 @@
 	"Ventas.h"
 	"Salas.h"
 
-1750533063 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
+1750795847 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.h
 	"Fecha.h"
 
 1750716150 c:\users\lucas\onedrive\escritorio\tp_progra2_2025\tpprog2_2025\proyecto_programacion_dos\ventas.h

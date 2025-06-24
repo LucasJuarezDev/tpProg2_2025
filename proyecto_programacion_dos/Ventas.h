@@ -14,13 +14,13 @@ private:
     int dniComprador;
     int compradorAsiento;
     int cantidadEntradas;
-    char horarioFuncion[10];
+    int horarioFuncion;
     float totalVenta;
 
 public:
 
     Venta();
-    Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, Fecha fecha_venta, int dni, int asiento, int entradas, const char * horarios, float total);
+    Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, Fecha fecha_venta, int dni, int asiento, int entradas, int horarios, float total);
     // getters
     int getIdVenta();
     int getPelicula();
@@ -30,7 +30,7 @@ public:
     int getDniComprador();
     int getAsientoComprador();
     int getCantidadEntradas();
-    const char * getHorarioFuncion();
+    int getHorarioFuncion();
     float getTotalVenta();
 
     // setters
@@ -42,7 +42,7 @@ public:
     void setDniComprador(int dni);
     void setCompradorAsiento(int asiento);
     void setCantidadEntradas(int entradas);
-    void setHorarioFuncion(const char * horarios);
+    void setHorarioFuncion(int horarios);
     void setTotalVenta(float total);
 
 

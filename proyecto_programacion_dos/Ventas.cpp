@@ -11,11 +11,11 @@ Venta::Venta(){
     dniComprador = 0;
     compradorAsiento = 0;
     cantidadEntradas = 0;
-    strcpy(horarioFuncion, "");
+    horarioFuncion = 0;
     totalVenta = 0.0f;
 }
 
-Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, Fecha fecha_venta, int dni, int asiento, int entradas, const char * horarios, float total){
+Venta::Venta(int id_venta, int id_pelicula, int id_sala, Fecha fecha_proyeccion, Fecha fecha_venta, int dni, int asiento, int entradas, int horarios, float total){
     setIdVenta(id_venta);
     setPelicula(id_pelicula);
     setSalaProyectada(id_sala);
@@ -38,8 +38,8 @@ void Venta::setCompradorAsiento(int asiento){
     compradorAsiento = asiento;
 }
 
-void Venta::setHorarioFuncion(const char * horarios){
-    strcpy(horarioFuncion, horarios);
+void Venta::setHorarioFuncion(int horarios){
+    horarioFuncion = horarios;
 }
 
 void Venta::setTotalVenta(float total){
@@ -79,7 +79,7 @@ int Venta::getAsientoComprador(){
     return compradorAsiento;
 }
 
-const char * Venta::getHorarioFuncion(){
+int Venta::getHorarioFuncion(){
     return horarioFuncion;
 }
 

@@ -23,8 +23,6 @@ class ventasManager
         bool mostrarSala(int);
         int ocuparSala(int);
         int ocuparPelicula();
-        int seleccionHorario();
-        const char * asignarHorario(int);
     public:
     void submenuCargarVenta();
     void submenuListarVentas();

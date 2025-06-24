@@ -8,6 +8,7 @@ class Fecha
 {
 private:
     int Dia, Mes, Anio, Hora;
+    int seleccionHorario(int, int);
 public:
     Fecha(int _Dia, int _Mes, int _Anio, int _Hora);
     Fecha();
