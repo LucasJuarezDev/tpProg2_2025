@@ -20,7 +20,8 @@ public:
     void setMes(int _Mes);
     void setAnio(int _Anio);
     void setHora(int _Hora);
-    void MostrarFechaActual(Fecha);
+    void MostrarFechaActual(Fecha, bool ticket = false);
+    void mostrarHora(int);
     Fecha ReturnFechaActual();
     Fecha CargarFecha();
 };

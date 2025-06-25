@@ -36,22 +36,23 @@ void ventasManager::mostrarVenta(Venta obj){
     cout << "|         TICKET DE VENTA DE CINE         |" << endl;
     cout << "+=========================================+" << endl;
     cout << "| Operacion N: " << obj.getIdVenta() << endl;
-    cout << "| Fecha: ";
-    muestra_fecha.MostrarFechaActual(obj.getFechaProyeccion());
+    cout << "| Realizada - ";
+    muestra_fecha.MostrarFechaActual(obj.getFechaVenta());
     cout << "+-----------------------------------------+" << endl;
     cout << "| Pelicula:     " << peli.getNombre() << endl;
     cout << "| Director:     " << peli.getDirectorNombre() << " " << peli.getDirectorApellido() << endl;
     cout << "| Duracion:     " << setfill('0') << setw(2) << horas << ":" << setfill('0') << setw(2) << minutos << ":" << setfill('0') << setw(2) << segundos << endl;
     cout << "+-----------------------------------------+" << endl;
+    cout << "| Fecha de Funcion - ";
+    muestra_fecha.MostrarFechaActual(obj.getFechaProyeccion(), true);
+    cout << "| Horario de Funcion - ";
+    muestra_fecha.mostrarHora(obj.getFechaProyeccion().getHora());
     cout << "| Sala:         " << venta_sala.getNombreSala();
     cout << " - " << venta_sala.getDenominacionSala() << endl;
     cout << "| Asiento N:    " << obj.getAsientoComprador() << endl;
-    cout << "| Horario:      ";
-    obj.getHorarioFuncion();
     cout << "+-----------------------------------------+" << endl;
-    cout << "| TOTAL:        $" << obj.getTotalVenta() << endl;
+    cout << "| PRECIO:        $" << obj.getTotalVenta() << endl;
     cout << "+=========================================+" << endl;
-    cout << endl;
 
 }
 
@@ -191,13 +192,31 @@ int ventasManager :: ocuparPelicula(){
     return id_pelicula;
 }
 
+bool ventasManager::funcionExistente(int id_sala, Fecha fecha_funcion){ //ayuda a determinar antes de confirmar venta si la sala esta en uso a esa fecha
+    int cantidadVentas = archVenta.cantidadRegistros();
+
+    for(int x = 0 ; x < cantidadVentas ; x ++){
+        Venta ventaGuardada = archVenta.leerVenta(x);
+
+        if(ventaGuardada.getSalaProyecta() == id_sala &&
+           ventaGuardada.getFechaProyeccion().getDia() == fecha_funcion.getDia() &&
+           ventaGuardada.getFechaProyeccion().getMes() == fecha_funcion.getMes() &&
+           ventaGuardada.getFechaProyeccion().getHora() == fecha_funcion.getHora()
+        ){
+            return true;
+        }
+    }
+    return false;
+}
+
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
 
 void ventasManager::submenuCargarVenta(){
+    obj = Venta();
     srand(time(NULL));
     int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida, dni, capacidadSala = 0;
     Fecha fecha_venta, obj_fecha;
-    float total, precio_x_butaca = 400;
+    float total = 0, precio_x_butaca = 400;
     char horario[10], tipoSala[50];
 
     system("cls");
@@ -213,18 +232,18 @@ void ventasManager::submenuCargarVenta(){
         obj_fecha = fecha_venta.CargarFecha();
         system("cls");
         cout << "=============================================================="<< endl;
-        cout << "VENTA NRO " << id_venta << endl;
-        cout << "--------------------------------" << endl;
+        cout << "                VENTA NRO " << id_venta << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << "REALIZA EL ";
         obj.getFechaVenta().MostrarFechaActual(fecha_venta);
         obj.setFechaVenta(fecha_venta);
-        cout << "*********************************************************" << endl;
+        cout << "--------------------------------------------------------------" << endl;
         cout << "FECHA DE FUNCION ";
         obj.getFechaProyeccion().MostrarFechaActual(obj_fecha);
         obj.setFechaProyeccion(obj_fecha);
         obj.setHorarioFuncion(obj_fecha.getHora());
-        cout << endl;
         cout << "=============================================================="<< endl;
+        cout << endl;
         cout << "SELECCIONE LA CANTIDAD DE BUTACAS: ";
         cout << "(PRECIO ACTUAL X BUTACA : " << precio_x_butaca << ")" << endl;
         cin >> asientos_vendidos;
@@ -259,10 +278,19 @@ void ventasManager::submenuCargarVenta(){
         }while(true);
         cout << endl;
         cout << "=============================================================="<< endl;
-        total = asientos_vendidos * precio_x_butaca;
-        obj.setTotalVenta(total);
         venta_sala = archVenta.leerSala(sala - 1);
         strcpy(tipoSala, venta_sala.getDenominacionSala());
+
+        if(funcionExistente(obj.getSalaProyecta(), obj.getFechaProyeccion())){
+            system("cls");
+            cout << "                      ERROR" << endl;
+            cout << "---------------------------------------------------" << endl;
+            cout << "YA EXISTE UNA FUNCION EN ESA SALA, FECHA Y HORARIO." << endl;
+            cout << "NO SE PUEDE COMPLETAR LA VENTA." << endl;
+            cout << "---------------------------------------------------" << endl;
+            system("pause");
+            continue;
+        }
 
         if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidadSala = 150;
         else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidadSala = 300;
@@ -273,17 +301,24 @@ void ventasManager::submenuCargarVenta(){
             Venta nuevaVenta = obj;
             int asientoAleatorio = (rand() % capacidadSala) + 1;
             nuevaVenta.setCompradorAsiento(asientoAleatorio);
+            nuevaVenta.setTotalVenta(precio_x_butaca);
             archVenta.guardarVenta(nuevaVenta);
         }
 
         system("cls");
-        cout << "VENTA CONFIRMADA" << endl;
+        cout << "              VENTA CONFIRMADA!" << endl;
+        cout << "---------------------------------------------" << endl;
+        cout << endl;
         int posicionInicial = archVenta.cantidadRegistros() - obj.getCantidadEntradas(); //me pos
 
         for (int x = 0; x < obj.getCantidadEntradas(); x++) {
             Venta v = archVenta.leerVenta(posicionInicial + x);
             mostrarVenta(v);
+            total += v.getTotalVenta();
         }
+        cout << "| TOTAL DE TODA LA OPERACION: $" << total << endl;
+        cout << "+=========================================+" << endl << endl;
+
         cout << "DESEA REALIZAR OTRA VENTA? (0  - NO | 1 - SI)" << endl;
         cout << "INGRESE: ";
         cin >> finProceso;

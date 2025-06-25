@@ -55,9 +55,14 @@ void Fecha::setHora(int _Hora){
 }
 
 //mostrar fecha
-void Fecha ::MostrarFechaActual(Fecha obj)
+void Fecha ::MostrarFechaActual(Fecha obj, bool ticket)
 {
-    cout << obj.getDia() << "/" << obj.getMes() << "/" << 2025 << " - " << obj.getHora() << ":00 hs." << endl;
+    if(!ticket){
+        cout << obj.getDia() << "/" << obj.getMes() << "/" << 2025 << " - " << obj.getHora() << ":00 hs." << endl;
+    }else
+    {
+        cout << obj.getDia() << "/" << obj.getMes() << "/" << 2025 << endl;
+    }
 }
 
 
@@ -76,6 +81,8 @@ Fecha Fecha::CargarFecha() {
     do{
         cout << "FECHA DE FUNCION" << endl;
         cout << "-------------------------" << endl;
+        system("pause");
+        system("cls");
         cout << "DIA DE LA FUNCION: ";
         cin >> dia;
         cout << "MES DE LA FUNCION: ";
@@ -95,14 +102,20 @@ Fecha Fecha::CargarFecha() {
             } else {
                 cout << "La fecha ingresada ya paso. Ingrese una fecha futura." << endl;
                 system("pause");
+                system("cls");
             }
         } else {
             cout << "Dia o mes fuera de rango. Intente nuevamente." << endl;
             system("pause");
+            system("cls");
         }
 
     }while(!fechaValida);
 
+}
+
+void Fecha::mostrarHora(int hora){
+    cout << hora << ":00" << endl;
 }
 
 int Fecha::seleccionHorario(int diaIngresado, int mesIngresado){

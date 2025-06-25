@@ -23,6 +23,7 @@ class ventasManager
         bool mostrarSala(int);
         int ocuparSala(int);
         int ocuparPelicula();
+        bool funcionExistente(int, Fecha);
     public:
     void submenuCargarVenta();
     void submenuListarVentas();

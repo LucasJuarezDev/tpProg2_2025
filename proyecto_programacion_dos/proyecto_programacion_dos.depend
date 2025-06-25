@@ -12,11 +12,11 @@
 	"salasManager.h"
 	"ventasManager.h"
 
-1750795175 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
+1750879212 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.cpp
 	"Fecha.h"
 	<ctime>
 
-1750794825 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
+1750878920 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\fecha.h
 	<iostream>
 	<string>
 
@@ -113,7 +113,7 @@
 1747778745 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\salasarchivos.h
 	"Salas.h"
 
-1750795640 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
+1750795817 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventas.cpp
 	"ventas.h"
 	<cstring>
 
@@ -121,7 +121,7 @@
 	"ventasArchivos.h"
 	<iostream>
 
-1750795054 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
+1750882356 source:c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.cpp
 	"VentasManager.h"
 	<iostream>
 	<cstring>
@@ -133,7 +133,7 @@
 	"salasArchivos.h"
 	"Salas.h"
 
-1750790288 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
+1750880614 c:\users\dream\desktop\repoprogra2\tpprog2_2025\proyecto_programacion_dos\ventasmanager.h
 	"Ventas.h"
 	"Salas.h"
 	"Peliculas.h"
