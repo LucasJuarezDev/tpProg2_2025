@@ -344,7 +344,8 @@ void ventasManager::submenuCargarVenta(){
         cout << "              VENTA CONFIRMADA!" << endl;
         cout << "---------------------------------------------" << endl;
         cout << endl;
-        int posicionInicial = archVenta.cantidadRegistros() - obj.getCantidadEntradas(); //me pos
+        int posicionInicial = archVenta.cantidadRegistros() - obj.getCantidadEntradas();
+        total = 0;
 
         for (int x = 0; x < obj.getCantidadEntradas(); x++) {
             Venta v = archVenta.leerVenta(posicionInicial + x);
@@ -496,6 +497,79 @@ void ventasManager::submenuListarVentas(){
         }
 
     }while(finProceso != 0);
+}
+
+//////////////////////////////////   ESTADISTICAS   ////////////////////////////////////////////////////////
+
+void ventasManager::estadisticaVentasMes(){
+    int selector;
+    int cantidad = archVenta.cantidadRegistros();
+    bool encontro = false;
+    string meses [12] =
+    {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
+
+    do
+    {
+        system("cls");
+        cout << "+-------------------------------------------+" << endl;
+        cout << "|               VENTAS X MES                |" << endl;
+        cout << "+===========================================+" << endl;
+        cout << "|            1   - ENERO                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            2   - FEBRERO                  |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            3   - MARZO                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            4   - ABRIL                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            5   - MAYO                     |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            6   - JUNIO                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            7   - JULIO                    |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            8   - AGOSTO                   |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            9   - SEPTIEMBRE               |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            10   - OCTUBRE                 |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            11   - NOVIEMBRE               |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            12   - DICIEMBRE               |" << endl;
+        cout << "|                                           |"<< endl;
+        cout << "|            0   - ATRAS                    |" << endl;
+        cout << "+-------------------------------------------+" << endl;
+        cout << "INGRESE: ";
+        cin >> selector;
+
+        if (selector >= 1 && selector <= 12) {
+            for (int x = 0; x < cantidad; x++) {
+                obj = archVenta.leerVenta(x);
+                if (obj.getFechaVenta().getMes() == selector) {
+                    mostrarVenta(obj);
+                    encontro = true;
+                }
+            }
+
+            if(!encontro){
+                system("cls");
+                cout << "----------------------------------------" << endl;
+                cout << "NO HUBO VENTAS EN EL MES DE " << meses[selector - 1] << "." << endl;
+                cout << "----------------------------------------" << endl;
+            }
+            system("pause");
+        }
+        else if (selector != 0) {
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+            }
+            cout << "OPCION INCORRECTA, INGRESE UNA VALIDA." << endl;
+            system("pause");
+        }
+
+    }while(selector != 0);
 }
 
 

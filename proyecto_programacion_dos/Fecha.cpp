@@ -100,12 +100,18 @@ Fecha Fecha::CargarFecha() {
                 fechaValida = true;
                 return fecha_retorno;
             } else {
-                cout << "La fecha ingresada ya paso. Ingrese una fecha futura." << endl;
+                cout << endl;
+                cout << "----------------------------------------" << endl;
+                cout << "LA FECHA INGRESADA PARA LA FUNCION NO ES CORRECTA." << endl;
+                cout << "----------------------------------------" << endl;
                 system("pause");
                 system("cls");
             }
         } else {
-            cout << "Dia o mes fuera de rango. Intente nuevamente." << endl;
+            cout << endl;
+            cout << "----------------------------------------" << endl;
+            cout << "FECHA INVALIDA. INTENTE NUEVAMENTE." << endl;
+            cout << "----------------------------------------" << endl;
             system("pause");
             system("cls");
         }
@@ -168,16 +174,24 @@ int Fecha::seleccionHorario(int diaIngresado, int mesIngresado){
                 case 10: horaSeleccionada = 23; break;
             }
             if (diaIngresado == obj.getDia() && mesIngresado == obj.getMes() && horaSeleccionada <= obj.getHora()) {
-                cout << "No puede seleccionar un horario anterior al actual." << endl;
+                cout << endl;
+                cout << "----------------------------------------" << endl;
+                cout << "NO ES POSIBLE SELECCIONAR ESTE HORARIO." << endl;
+                cout << "----------------------------------------" << endl;
                 system("pause");
+                system("cls");
             }
             else {
                 encontro = true;
                 return horaSeleccionada;
             }
         } else {
+            cout << endl;
+            cout << "----------------------------------------" << endl;
             cout << "OPCION INVALIDA. INTENTE NUEVAMENTE." << endl;
+            cout << "----------------------------------------" << endl;
             system("pause");
+            system("cls");
         }
 
     }while(!encontro);

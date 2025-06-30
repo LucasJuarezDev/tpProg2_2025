@@ -26,14 +26,11 @@ class ventasManager
         bool funcionExistente(int, Fecha, int);
         int butacasDisponibles(int, Fecha);
     public:
+    ///////////////SUBMENU VENTAS///////////////////
     void submenuCargarVenta();
     void submenuListarVentas();
-    //void submenuImporteTotal();
-    //void registrarVenta();
-    //void cancelarVenta();
-    //void buscarVentas();
-    //void mostrarVenta();
-   //void guardarCambios();
+    ///////////////ESTADISTICAS///////////////////
+    void estadisticaVentasMes();
 };
 
 #endif // VENTASMANAGER_H_INCLUDED

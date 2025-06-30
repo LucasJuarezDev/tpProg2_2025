@@ -2,6 +2,7 @@
 #define MENUS_H_INCLUDED
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include "peliculasManager.h"
 #include "salasManager.h"
 #include "ventasManager.h"
@@ -283,6 +284,8 @@ cout << "INGRESE: ";
                 break;
             case 2:
                 {
+                    Ventas.estadisticaVentasMes();
+                    /*
                     system("cls");
 
                     Venta obj;
@@ -312,6 +315,7 @@ cout << "INGRESE: ";
                             cout << "HUBO UN TOTAL DE " << mes[y] << " VENTAS EN EL MES Nro. " << y+1  << "." << endl << endl;
                         }
                     }
+                    */
                     system("pause");
                 }
                 break;
