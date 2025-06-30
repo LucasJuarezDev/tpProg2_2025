@@ -389,7 +389,7 @@ void ventasManager::submenuListarVentas(){
                     for(int y = 0 ; y < cantidad ; y ++)
                         {
                         obj = archVenta.leerVenta(y);
-                        if(obj.getFechaProyeccion().getAnio() == anio && obj.getFechaProyeccion().getMes() == mes && obj.getFechaProyeccion().getDia() == dia)
+                        if(obj.getFechaVenta().getAnio() == anio && obj.getFechaVenta().getMes() == mes && obj.getFechaVenta().getDia() == dia)
                             {
                             mostrarVenta(obj);
                             }
