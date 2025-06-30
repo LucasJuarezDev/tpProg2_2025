@@ -123,10 +123,7 @@ int ventasManager::ocuparSala(int asientos_vendidos){ // metodo interno para sob
                 if (venta_sala.getIdSala() == sala && venta_sala.getActivo() && venta_sala.getButacas() > 0){// Una vez encontrada modifico y guardo en el archivo
 
                     id_sala = venta_sala.getIdSala(); //me llevo el id de la sala para luego al salir del metodo quedarmelo
-                    asientos_disponibles = venta_sala.getButacas() - asientos_vendidos; //si todo esta ok, hago el calculo de asientos actuales
-
                     venta_sala.setSalaOcupada(true);
-                    venta_sala.setButacas(asientos_disponibles);
                     archVenta.SobreescribirSala(pos, venta_sala);
                     encontro = true;
                     break;
@@ -192,7 +189,7 @@ int ventasManager :: ocuparPelicula(){
     return id_pelicula;
 }
 
-bool ventasManager::funcionExistente(int id_sala, Fecha fecha_funcion){ //ayuda a determinar antes de confirmar venta si la sala esta en uso a esa fecha
+bool ventasManager::funcionExistente(int id_sala, Fecha fecha_funcion, int id_pelicula){ //ayuda a determinar antes de confirmar venta si la sala esta en uso a esa fecha
     int cantidadVentas = archVenta.cantidadRegistros();
 
     for(int x = 0 ; x < cantidadVentas ; x ++){
@@ -203,10 +200,31 @@ bool ventasManager::funcionExistente(int id_sala, Fecha fecha_funcion){ //ayuda 
            ventaGuardada.getFechaProyeccion().getMes() == fecha_funcion.getMes() &&
            ventaGuardada.getFechaProyeccion().getHora() == fecha_funcion.getHora()
         ){
-            return true;
+            if (ventaGuardada.getPelicula() == id_pelicula) {
+                continue; // determinamos que, la venta que coincide el dia/mes/hora con una funcion, es la funcion en efecto haciendo otra venta
+            }
+            return true; // se intento meter otra pelicula en el mismo dia/mes/hora
         }
     }
     return false;
+}
+
+int ventasManager::butacasDisponibles(int id_sala, Fecha fecha_funcion){
+    int total = 0;
+    int cantidadVentas = archVenta.cantidadRegistros();
+
+    for(int x = 0 ; x < cantidadVentas ; x ++){
+        Venta ventaGuardada = archVenta.leerVenta(x);
+
+        if( ventaGuardada.getSalaProyecta() == id_sala &&
+           ventaGuardada.getFechaProyeccion().getDia() == fecha_funcion.getDia() &&
+           ventaGuardada.getFechaProyeccion().getMes() == fecha_funcion.getMes() &&
+           ventaGuardada.getFechaProyeccion().getHora() == fecha_funcion.getHora()
+        ){
+            total ++;
+        }
+    }
+    return total;
 }
 
 //////////////////////////////   SUBMENUS   ///////////////////////////////////////////
@@ -214,7 +232,7 @@ bool ventasManager::funcionExistente(int id_sala, Fecha fecha_funcion){ //ayuda 
 void ventasManager::submenuCargarVenta(){
     obj = Venta();
     srand(time(NULL));
-    int id_venta, sala, pelicula, asientos_vendidos, finProceso, opcionElegida, dni, capacidadSala = 0;
+    int id_venta, sala, pelicula, asientos_vendidos, asientos_ocupados, finProceso, opcionElegida, dni, capacidadSala = 0;
     Fecha fecha_venta, obj_fecha;
     float total = 0, precio_x_butaca = 400;
     char horario[10], tipoSala[50];
@@ -263,6 +281,41 @@ void ventasManager::submenuCargarVenta(){
         obj.setPelicula(pelicula);
         cout << endl;
         cout << "=============================================================="<< endl;
+        venta_sala = archVenta.leerSala(sala - 1);
+        strcpy(tipoSala, venta_sala.getDenominacionSala()); //Determino el tamaño de la sala
+
+        if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidadSala = 150;
+        else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidadSala = 300;
+        else if (strcmp(venta_sala.getDenominacionSala(), "LARGE") == 0) capacidadSala = 500;
+        else if (strcmp(venta_sala.getDenominacionSala(), "MEGA") == 0) capacidadSala = 700;
+
+        int puedoProceder = butacasDisponibles(obj.getSalaProyecta(), obj.getFechaProyeccion());
+
+        asientos_ocupados = capacidadSala - (puedoProceder + asientos_vendidos);
+        // DIFERENCIA ENTRE LA CAPACIDAD QUE TIENE LA SALA Y LAS ENTRADAS YA VENDIDAS + LAS ENTRADAS DE ESTA VENTA
+
+        if(funcionExistente(obj.getSalaProyecta(), obj.getFechaProyeccion(), obj.getPelicula())){
+            //SE ELIGIO EN EL MISMO DIA/MES/HORA , MISMA SALA Y DISTINTA PELICULA -  | FUNCION YA OCUPADA |
+            system("cls");
+            cout << "                      ERROR" << endl;
+            cout << "---------------------------------------------------" << endl;
+            cout << "YA EXISTE UNA FUNCION EN ESA SALA, FECHA Y HORARIO." << endl;
+            cout << "NO SE PUEDE COMPLETAR LA VENTA." << endl;
+            cout << "---------------------------------------------------" << endl;
+            system("pause");
+            continue;
+        }
+        else if(asientos_ocupados < 0){//SI ES MENOR A 0, LA VENTA NO PUEDE PROCEDER
+            system("cls");
+            cout << "                      ERROR" << endl;
+            cout << "------------------------------------------------------------" << endl;
+            cout << "              NO HAY BUTACAS SUFICIENTES" << endl;
+            cout << "            NO SE PUEDE COMPLETAR LA VENTA." << endl;
+            cout << "------------------------------------------------------------" << endl;
+            system("pause");
+            return;
+        }
+
         do {
             cout << "CONFIRMACION DE COMPRA - DNI DEL CLIENTE: ";
             cin >> dni;
@@ -278,24 +331,6 @@ void ventasManager::submenuCargarVenta(){
         }while(true);
         cout << endl;
         cout << "=============================================================="<< endl;
-        venta_sala = archVenta.leerSala(sala - 1);
-        strcpy(tipoSala, venta_sala.getDenominacionSala());
-
-        if(funcionExistente(obj.getSalaProyecta(), obj.getFechaProyeccion())){
-            system("cls");
-            cout << "                      ERROR" << endl;
-            cout << "---------------------------------------------------" << endl;
-            cout << "YA EXISTE UNA FUNCION EN ESA SALA, FECHA Y HORARIO." << endl;
-            cout << "NO SE PUEDE COMPLETAR LA VENTA." << endl;
-            cout << "---------------------------------------------------" << endl;
-            system("pause");
-            continue;
-        }
-
-        if (strcmp(venta_sala.getDenominacionSala(), "SMALL") == 0) capacidadSala = 150;
-        else if (strcmp(venta_sala.getDenominacionSala(), "MEDIUM") == 0) capacidadSala = 300;
-        else if (strcmp(venta_sala.getDenominacionSala(), "LARGE") == 0) capacidadSala = 500;
-        else if (strcmp(venta_sala.getDenominacionSala(), "MEGA") == 0) capacidadSala = 700;
 
         for(int x = 0 ; x < obj.getCantidadEntradas() ; x ++){
             Venta nuevaVenta = obj;
