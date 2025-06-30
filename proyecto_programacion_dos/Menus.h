@@ -283,7 +283,35 @@ cout << "INGRESE: ";
                 break;
             case 2:
                 {
+                    system("cls");
 
+                    Venta obj;
+                    VentaArchivo arcventa;
+                    Fecha fecha_venta;
+
+                    time_t t;
+                    struct tm *f;
+                    time(&t);
+                    f = localtime(&t);
+                    int mesactual = f->tm_mon+1;
+
+
+                    int cantidad = arcventa.cantidadRegistros();
+                    int mes [mesactual]= {};
+
+                    for(int x = 0 ; x < cantidad ; x ++){
+                        obj = arcventa.leerVenta(x);
+                        mes[obj.getFechaVenta().getMes()]++;
+                    }
+
+                    for(int y = 0; y < mesactual; y++){
+                        if(mes[y] == 0){
+                            cout << "NO HUBO VENTAS EN EL MES " << y+1 << "." << endl << endl;
+                        }
+                        else{
+                            cout << "HUBO UN TOTAL DE " << mes[y] << " VENTAS EN EL MES Nro. " << y+1  << "." << endl << endl;
+                        }
+                    }
                     system("pause");
                 }
                 break;
