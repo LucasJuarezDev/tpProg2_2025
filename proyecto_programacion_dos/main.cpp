@@ -10,6 +10,13 @@ void SetColor(int color) {
     SetConsoleTextAttribute(hConsole, color);
 }
 
+/**
+Calcular e informar la recaudacion total por mes.
+Mostrar la pelicula con mas entraras vendidas (en total).
+Infomrar la cantidad de entradas vendidas por cada sala.
+
+*/
+
 int main()
 {
     setlocale(LC_ALL, "Spanish");
